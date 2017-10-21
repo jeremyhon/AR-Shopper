@@ -35,6 +35,18 @@ struct PlacesLoader {
     let latitude = location.coordinate.latitude
     let longitude = location.coordinate.longitude
     
+//    let cert = PKCS12.init(mainBundleResource: "cert", resourceType: "p12", password: "password");
+    let sessionManager = Alamofire.SessionManager()
+    sessionManager.delegate.sessionDidReceiveChallenge = { session, challenge in
+//      if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodClientCertificate {
+//        return (URLSession.AuthChallengeDisposition.useCredential, cert.urlCredential());
+//      }
+      if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+        return (URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!));
+      }
+      return (URLSession.AuthChallengeDisposition.performDefaultHandling, Optional.none);
+    }
+    
     
   }
   
