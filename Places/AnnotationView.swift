@@ -30,6 +30,7 @@ protocol AnnotationViewDelegate {
 class AnnotationView: ARAnnotationView {
   var titleLabel: UILabel?
   var distanceLabel: UILabel?
+  var imageLabel: UILabel?
   var delegate: AnnotationViewDelegate?
   
   override func didMoveToSuperview() {
@@ -41,7 +42,9 @@ class AnnotationView: ARAnnotationView {
   func loadUI() {
     titleLabel?.removeFromSuperview()
     distanceLabel?.removeFromSuperview()
-
+    imageLabel?.removeFromSuperview()
+    
+    print("Creating label")
     let label = UILabel(frame: CGRect(x: 10, y: 0, width: self.frame.size.width, height: 30))
     label.font = UIFont.systemFont(ofSize: 16)
     label.numberOfLines = 0
@@ -55,21 +58,47 @@ class AnnotationView: ARAnnotationView {
     distanceLabel?.textColor = UIColor.green
     distanceLabel?.font = UIFont.systemFont(ofSize: 12)
     self.addSubview(distanceLabel!)
+  
+    imageLabel = UILabel(frame: CGRect(x: 50, y: 0, width: self.frame.size.width, height: 20))
+    imageLabel?.numberOfLines = 0
     
     if let annotation = annotation as? Place {
       titleLabel?.text = annotation.placeName
       distanceLabel?.text = String(format: "%.2f km", annotation.distanceFromUser / 1000)
-      
+      imageLabel?.text = annotation.placeName
+      print("Title label text: " + (titleLabel?.text)!)
+      print("Image label text: " + (imageLabel?.text)!)
     }
+    
+    imageLabel?.addImage(imageName: "icons8-Home-50.png")
+    self.addSubview(imageLabel!)
   }
+  
   
   override func layoutSubviews() {
     super.layoutSubviews()
     titleLabel?.frame = CGRect(x: 10, y: 0, width: self.frame.size.width, height: 30)
     distanceLabel?.frame = CGRect(x: 10, y: 30, width: self.frame.size.width, height: 20)
+    imageLabel?.frame = CGRect(x: 50, y: 0, width: self.frame.size.width, height: 30)
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     delegate?.didTouch(annotationView: self)
+  }
+}
+
+extension UILabel
+{
+  func addImage(imageName: String)
+  {
+    print("Adding image")
+    print("Image Name: " + imageName)
+    let attachment:NSTextAttachment = NSTextAttachment()
+    attachment.image = UIImage(named: imageName)
+    let attachmentString:NSAttributedString = NSAttributedString(attachment: attachment)
+    let myString:NSMutableAttributedString = NSMutableAttributedString(string: self.text!)
+    myString.append(attachmentString)
+    
+    self.attributedText = myString
   }
 }
