@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		15DDF04CA02676B34CC4490D /* Pods_Places.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796D60F5C52425E8A3DA39E2 /* Pods_Places.framework */; };
 		6F3984EB1F9C0AA600CAD4D5 /* PKCS12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3984EA1F9C0AA600CAD4D5 /* PKCS12.swift */; };
+		6F3984ED1F9C0BCF00CAD4D5 /* cert.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 6F3984EC1F9C0BCF00CAD4D5 /* cert.p12 */; };
 		8F7404871DCF8834009A6F0B /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7404861DCF8834009A6F0B /* AnnotationView.swift */; };
 		8FFCD7A11DC4A204009E3855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFCD7A01DC4A204009E3855 /* AppDelegate.swift */; };
 		8FFCD7A31DC4A204009E3855 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFCD7A21DC4A204009E3855 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		51B6C5D8E3F937D2DAC1D9A8 /* Pods-Places.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Places.release.xcconfig"; path = "Pods/Target Support Files/Pods-Places/Pods-Places.release.xcconfig"; sourceTree = "<group>"; };
 		6F3984EA1F9C0AA600CAD4D5 /* PKCS12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCS12.swift; sourceTree = "<group>"; };
+		6F3984EC1F9C0BCF00CAD4D5 /* cert.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert.p12; sourceTree = "<group>"; };
 		796D60F5C52425E8A3DA39E2 /* Pods_Places.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Places.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7404861DCF8834009A6F0B /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		8FFCD79D1DC4A204009E3855 /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +114,7 @@
 				8FFCD7A41DC4A204009E3855 /* Main.storyboard */,
 				8FFCD7B21DC4A39A009E3855 /* HDAugmentedReality */,
 				8FFCD7A71DC4A204009E3855 /* Assets.xcassets */,
+				6F3984EC1F9C0BCF00CAD4D5 /* cert.p12 */,
 				8FFCD7A91DC4A204009E3855 /* LaunchScreen.storyboard */,
 				8FFCD7AC1DC4A204009E3855 /* Info.plist */,
 			);
@@ -249,6 +252,7 @@
 				8FFCD7A61DC4A204009E3855 /* Main.storyboard in Resources */,
 				8FFCD7C81DC4A39A009E3855 /* hdar_close@2x.png in Resources */,
 				8FFCD7C61DC4A39A009E3855 /* DebugMapViewController.xib in Resources */,
+				6F3984ED1F9C0BCF00CAD4D5 /* cert.p12 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
