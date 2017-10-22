@@ -1157,6 +1157,12 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         self.present(mapViewController, animated: true, completion: nil)
         mapViewController.addAnnotations(self.annotations)
     }
+  
+  func hardCodeLocation(location: CLLocation) {
+    self.trackingManager.startDebugMode(location)
+//    self.reloadAnnotations()
+//    self.dismiss(animated: true, completion: nil)
+  }
     
     func addDebugUi()
     {

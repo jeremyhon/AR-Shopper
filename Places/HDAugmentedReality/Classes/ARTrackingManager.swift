@@ -192,9 +192,9 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
             if age < -30 || location.horizontalAccuracy > 500 || location.horizontalAccuracy < 0
             {
                 print("Disregarding location: age: \(age), ha: \(location.horizontalAccuracy)")
-                return
+//                return
             }
-            
+          
             self.stopLocationSearchTimer()
             
             //println("== \(location!.horizontalAccuracy), \(age) \(location!.coordinate.latitude), \(location!.coordinate.longitude)" )

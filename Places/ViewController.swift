@@ -102,6 +102,9 @@ class ViewController: UIViewController {
     self.arViewController.uiOptions.debugEnabled = false
     self.arViewController.uiOptions.closeButtonEnabled = true
     
+    let location = CLLocation(latitude: 36.12256531, longitude: -115.16667458)
+    self.arViewController.hardCodeLocation(location: location)
+    
     //creating second ARView (for in store items listing)
     print("Creating arViewController1")
     self.arViewController1 = ARViewController()
@@ -114,8 +117,10 @@ class ViewController: UIViewController {
     self.arViewController1.trackingManager.userDistanceFilter = 25
     self.arViewController1.trackingManager.reloadDistanceFilter = 75
     self.arViewController1.setAnnotations(places1)
+    
     self.arViewController1.uiOptions.debugEnabled = false
     self.arViewController1.uiOptions.closeButtonEnabled = true
+    self.arViewController1.hardCodeLocation(location: location)
     
     //    self.arViewController = arViewController
     //    self.arViewController1 = arViewController1
