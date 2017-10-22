@@ -35,6 +35,7 @@ class ViewController: UIViewController {
   var arViewController1: ARViewController!
   var startedLoadingPOIs = false
   var networkMgr = NetworkManager()
+  var secondScreen = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -66,7 +67,7 @@ class ViewController: UIViewController {
     arViewController.uiOptions.debugEnabled = false
     arViewController.uiOptions.closeButtonEnabled = true
     
-    //creating second ARView
+    //creating second ARView (for in store items listing)
     print("Creating arViewController1")
     arViewController1 = ARViewController()
     arViewController1.dataSource = self
@@ -81,21 +82,76 @@ class ViewController: UIViewController {
     arViewController1.uiOptions.debugEnabled = false
     arViewController1.uiOptions.closeButtonEnabled = true
     
+    print("SWIPING LEFT")
+    let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+    swipeLeft.direction = .left
+    self.arViewController.addGestureRecognizer(gesture: swipeLeft)
+    self.arViewController1.addGestureRecognizer(gesture: swipeLeft)
+    
+    print("SWIPING RIGHT")
+    let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+    swipeRight.direction = .right
+    self.arViewController.addGestureRecognizer(gesture: swipeRight)
+    self.arViewController1.addGestureRecognizer(gesture: swipeRight)
+    
+    print("SWIPING UP")
+    let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+    swipeUp.direction = .up
+    self.arViewController.addGestureRecognizer(gesture: swipeUp)
+    self.arViewController1.addGestureRecognizer(gesture: swipeUp)
+    
+    print("SWIPING DOWN")
+    let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+    swipeDown.direction = .down
+    self.arViewController.addGestureRecognizer(gesture: swipeDown)
+    self.arViewController1.addGestureRecognizer(gesture: swipeDown)
+    
     print("Presenting arViewController")
     self.present(arViewController, animated: true, completion: nil)
   }
   
+  func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+    if gesture.direction == UISwipeGestureRecognizerDirection.right {
+      print("Swipe Right")
+    }
+    else if gesture.direction == UISwipeGestureRecognizerDirection.left {
+      print("Swipe Left")
+    }
+    else if gesture.direction == UISwipeGestureRecognizerDirection.up {
+      print("Swipe Up")
+    }
+    else if gesture.direction == UISwipeGestureRecognizerDirection.down {
+      print("Swipe Down")
+    }
+  }
+  
   func showInfoView(forPlace place: Place) {
     let alert = UIAlertController(title: place.placeName , message: place.infoText, preferredStyle: UIAlertControllerStyle.alert)
-    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (_) -> Void in
+    if self.secondScreen {
+      print("YES!")
+      let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (_) -> Void in
+        
+      }
+      print("Adding okAction")
+      alert.addAction(okAction)
       
-      self.arViewController.presentingViewController?.dismiss(animated: true, completion: nil)
-      self.present(self.arViewController1, animated: true, completion: nil)
+      arViewController1.present(alert, animated: true, completion: nil)
+      
     }
-    print("Adding okAction")
-    alert.addAction(okAction)
+    else {
+      print("NO!")
+      let okAction = UIAlertAction(title: "ENTER STORE", style: UIAlertActionStyle.default) { (_) -> Void in
+        
+        self.arViewController.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.present(self.arViewController1, animated: true, completion: nil)
+      }
+      print("Adding okAction")
+      alert.addAction(okAction)
+      
+      arViewController.present(alert, animated: true, completion: nil)
+      self.secondScreen = true
+    }
     
-    arViewController.present(alert, animated: true, completion: nil)
   }
 }
 

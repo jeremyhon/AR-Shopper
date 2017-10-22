@@ -1093,6 +1093,10 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         self.view.addSubview(closeButton)
         self.closeButton = closeButton
     }
+  
+  func addGestureRecognizer(gesture: UISwipeGestureRecognizer) {
+    self.view.addGestureRecognizer(gesture)
+  }
     
     //==========================================================================================================================================================
     //MARK:                                                        Debug
