@@ -122,6 +122,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     fileprivate var annotations: [ARAnnotation] = []
     fileprivate var activeAnnotations: [ARAnnotation] = []
     fileprivate var closeButton: UIButton?
+    fileprivate var checkoutButton: UIButton?
     fileprivate var currentHeading: Double = 0
     fileprivate var lastLocation: CLLocation?
 
@@ -241,6 +242,14 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
+  
+    internal func checkoutButtonTap()
+    {
+      print("Checkout Button Tapped")
+      self.presentingViewController?.dismiss(animated: true, completion: nil)
+//      self.performSegue(withIdentifier: "checkoutSegue", sender: nil)
+      
+    }
     
     open override var prefersStatusBarHidden : Bool
     {
@@ -256,6 +265,8 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
             
             // Close button
             if self.uiOptions.closeButtonEnabled { self.addCloseButton() }
+          
+            self.addCheckoutButton()
             
             // Debug
             if self.uiOptions.debugEnabled { self.addDebugUi() }
@@ -1093,6 +1104,32 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         self.view.addSubview(closeButton)
         self.closeButton = closeButton
     }
+  
+  func addCheckoutButton()
+  {
+    self.checkoutButton?.removeFromSuperview()
+    
+//    if self.closeButtonImage == nil
+//    {
+//      let bundle = Bundle(for: ARViewController.self)
+//      let path = bundle.path(forResource: "hdar_close", ofType: "png")
+//      if let path = path
+//      {
+//        self.closeButtonImage = UIImage(contentsOfFile: path)
+//      }
+//    }
+    
+    // Close button - make it customizable
+    let checkoutButton: UIButton = UIButton(type: UIButtonType.custom)
+    checkoutButton.frame = CGRect(x: 0, y: 5,width: 100,height: 100)
+    checkoutButton.setTitle("CHECKOUT", for: .normal)
+    checkoutButton.addTarget(self, action: #selector(ARViewController.checkoutButtonTap), for: UIControlEvents.touchUpInside)
+    checkoutButton.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleBottomMargin]
+    self.view.addSubview(checkoutButton)
+    self.checkoutButton = checkoutButton
+    print("Performing Segue")
+//    super.present(super.presentViewController, animated: true, completion: nil)
+  }
   
   func addGestureRecognizer(gesture: UISwipeGestureRecognizer) {
     self.view.addGestureRecognizer(gesture)
