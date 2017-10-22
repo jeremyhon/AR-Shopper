@@ -98,22 +98,54 @@ class NetworkManager {
             "results": [
               [
                 "name": "Ralph Lauren",
-                "reference": "1",
+                "reference": "ralph.png",
                 "address": "123 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
                 "lat":latitude+0.0003,
                 "lng":longitude
               ],[
                 "name": "Kate Spade",
-                "reference": "2",
+                "reference": "kate.png",
                 "address": "124 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
                 "lat":latitude+0.0006,
                 "lng":longitude+0.0003
               ],[
                 "name": "COACH",
-                "reference": "3",
+                "reference": "coach.png",
                 "address": "125 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
                 "lat":latitude+0.0009,
                 "lng":longitude-0.0003
+              ],[
+                "name": "Shirt",
+                "reference": "shirt.png",
+                "address": "nil",
+//                "lat":latitude+0.0003,
+//                "lng":longitude
+                "lat":latitude+0.00031,
+                "lng":longitude+0.0001
+              ],[
+                "name": "Polo",
+                "reference": "polo.png",
+                "address": "nil",
+//                "lat":latitude+0.0003,
+//                "lng":longitude
+                "lat":latitude+0.00033,
+                "lng":longitude+0.00008
+              ],[
+                "name": "Jeans",
+                "reference": "jeans.png",
+                "address": "nil",
+//                "lat":latitude+0.0003,
+//                "lng":longitude
+                "lat":latitude+0.00035,
+                "lng":longitude-0.00005
+              ],[
+                "name": "Sweater",
+                "reference": "sweater.png",
+                "address": "nil",
+//                "lat":latitude+0.0003,
+//                "lng":longitude
+                "lat":latitude+0.00037,
+                "lng":longitude
               ]
             ]
           ]

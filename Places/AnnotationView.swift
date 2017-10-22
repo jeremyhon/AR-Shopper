@@ -35,7 +35,6 @@ class AnnotationView: ARAnnotationView {
   
   override func didMoveToSuperview() {
     super.didMoveToSuperview()
-    
     loadUI()
   }
   
@@ -44,45 +43,59 @@ class AnnotationView: ARAnnotationView {
     distanceLabel?.removeFromSuperview()
     imageLabel?.removeFromSuperview()
     
-    print("Creating label")
-    let label = UILabel(frame: CGRect(x: 10, y: 0, width: self.frame.size.width, height: 30))
-    label.font = UIFont.systemFont(ofSize: 16)
+    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
     label.numberOfLines = 0
     label.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
-    label.textColor = UIColor.white
-    self.addSubview(label)
+//    label.textColor = UIColor.white
+//    self.addSubview(label)
     self.titleLabel = label
-    
-    distanceLabel = UILabel(frame: CGRect(x: 10, y: 30, width: self.frame.size.width, height: 20))
-    distanceLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
-    distanceLabel?.textColor = UIColor.green
-    distanceLabel?.font = UIFont.systemFont(ofSize: 12)
-    self.addSubview(distanceLabel!)
+//    self.imageLabel = label
+
+//    distanceLabel = UILabel(frame: CGRect(x: 10, y: 30, width: self.frame.size.width, height: 20))
+//    distanceLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+//    distanceLabel?.textColor = UIColor.green
+//    distanceLabel?.font = UIFont.systemFont(ofSize: 12)
+//    self.addSubview(distanceLabel!)
   
-    imageLabel = UILabel(frame: CGRect(x: 50, y: 0, width: self.frame.size.width, height: 20))
+    imageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
     imageLabel?.numberOfLines = 0
     
     if let annotation = annotation as? Place {
-      titleLabel?.text = annotation.placeName
-      distanceLabel?.text = String(format: "%.2f km", annotation.distanceFromUser / 1000)
-      imageLabel?.text = annotation.placeName
-      print("Title label text: " + (titleLabel?.text)!)
-      print("Image label text: " + (imageLabel?.text)!)
+      titleLabel?.text = ""
+//      distanceLabel?.text = String(format: "%.2f km", annotation.distanceFromUser / 1000)
+      imageLabel?.text = ""
+      imageLabel?.addImage(imageName: annotation.reference)
+//      imageLabel?.addImage(imageName: "icons8-Home-50.png")
     }
     
-    imageLabel?.addImage(imageName: "icons8-Home-50.png")
+    
     self.addSubview(imageLabel!)
   }
   
   
   override func layoutSubviews() {
     super.layoutSubviews()
-    titleLabel?.frame = CGRect(x: 10, y: 0, width: self.frame.size.width, height: 30)
-    distanceLabel?.frame = CGRect(x: 10, y: 30, width: self.frame.size.width, height: 20)
-    imageLabel?.frame = CGRect(x: 50, y: 0, width: self.frame.size.width, height: 30)
+//    titleLabel?.frame = CGRect(x: 0, y: 0, width: 250, height: 100)
+//    titleLabel?.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+//    distanceLabel?.frame = CGRect(x: 10, y: 30, width: self.frame.size.width, height: 20)
+    imageLabel?.frame = CGRect(x: 0, y: 0, width: 500, height: 200)
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     delegate?.didTouch(annotationView: self)
+  }
+}
+
+extension UILabel
+{
+  func addImage(imageName: String)
+  {
+    let attachment:NSTextAttachment = NSTextAttachment()
+    attachment.image = UIImage(named: imageName)
+    let attachmentString:NSAttributedString = NSAttributedString(attachment: attachment)
+    let myString:NSMutableAttributedString = NSMutableAttributedString(string: self.text!)
+    myString.append(attachmentString)
+    
+    self.attributedText = myString
   }
 }

@@ -54,33 +54,36 @@ class ViewController: UIViewController {
   
   @IBAction func showARController(_ sender: Any) {
     print("Creating arViewController")
-    arViewController = ARViewController()
-    arViewController.dataSource = self
-    arViewController.maxDistance = 0
-    arViewController.maxVisibleAnnotations = 30
-    arViewController.maxVerticalLevel = 5
-    arViewController.headingSmoothingFactor = 0.05
+    self.arViewController = ARViewController()
+    self.arViewController.dataSource = self
+    self.arViewController.maxDistance = 0
+    self.arViewController.maxVisibleAnnotations = 30
+    self.arViewController.maxVerticalLevel = 5
+    self.arViewController.headingSmoothingFactor = 0.05
     
-    arViewController.trackingManager.userDistanceFilter = 25
-    arViewController.trackingManager.reloadDistanceFilter = 75
-    arViewController.setAnnotations(places)
-    arViewController.uiOptions.debugEnabled = false
-    arViewController.uiOptions.closeButtonEnabled = true
+    self.arViewController.trackingManager.userDistanceFilter = 25
+    self.arViewController.trackingManager.reloadDistanceFilter = 75
+    self.arViewController.setAnnotations(places)
+    self.arViewController.uiOptions.debugEnabled = false
+    self.arViewController.uiOptions.closeButtonEnabled = true
     
     //creating second ARView (for in store items listing)
     print("Creating arViewController1")
-    arViewController1 = ARViewController()
-    arViewController1.dataSource = ProductViewDataSource()
-    arViewController1.maxDistance = 0
-    arViewController1.maxVisibleAnnotations = 30
-    arViewController1.maxVerticalLevel = 5
-    arViewController1.headingSmoothingFactor = 0.05
+    self.arViewController1 = ARViewController()
+    self.arViewController1.dataSource = self
+    self.arViewController1.maxDistance = 0
+    self.arViewController1.maxVisibleAnnotations = 30
+    self.arViewController1.maxVerticalLevel = 5
+    self.arViewController1.headingSmoothingFactor = 0.05
     
-    arViewController1.trackingManager.userDistanceFilter = 25
-    arViewController1.trackingManager.reloadDistanceFilter = 75
-    arViewController1.setAnnotations(places1)
-    arViewController1.uiOptions.debugEnabled = false
-    arViewController1.uiOptions.closeButtonEnabled = true
+    self.arViewController1.trackingManager.userDistanceFilter = 25
+    self.arViewController1.trackingManager.reloadDistanceFilter = 75
+    self.arViewController1.setAnnotations(places1)
+    self.arViewController1.uiOptions.debugEnabled = false
+    self.arViewController1.uiOptions.closeButtonEnabled = true
+    
+    //    self.arViewController = arViewController
+    //    self.arViewController1 = arViewController1
     
     print("SWIPING LEFT")
     let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
@@ -107,7 +110,7 @@ class ViewController: UIViewController {
     self.arViewController1.addGestureRecognizer(gesture: swipeDown)
     
     print("Presenting arViewController")
-    self.present(arViewController, animated: true, completion: nil)
+    self.present(self.arViewController, animated: true, completion: nil)
   }
   
   func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
@@ -140,10 +143,10 @@ class ViewController: UIViewController {
     else {
       print("NO!")
       let okAction = UIAlertAction(title: "ENTER STORE", style: UIAlertActionStyle.default) { (_) -> Void in
-        
-        self.arViewController.presentingViewController?.dismiss(animated: true, completion: nil)
-        self.present(self.arViewController1, animated: true, completion: nil)
         self.secondScreen = true
+        self.arViewController.presentingViewController?.dismiss(animated: false, completion: nil)
+        self.present(self.arViewController1, animated: false, completion: nil)
+        print("presenting product view")
       }
       let backAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (_) -> Void in
         print("cancel")
@@ -165,10 +168,14 @@ extension ViewController: CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     
     if locations.count > 0 {
-      let location = locations.last!
+      //      let location = locations.last!
+      let location = CLLocation(latitude: 36.12256531, longitude: -115.16667458)
+      //      manager.stopUpdatingLocation()
+      
       if location.horizontalAccuracy < 100 {
         manager.stopUpdatingLocation()
-        let span = MKCoordinateSpan(latitudeDelta: 0.014, longitudeDelta: 0.014)
+        //      print(location)
+        let span = MKCoordinateSpan(latitudeDelta: 0.010, longitudeDelta: 0.010)
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
         
         mapView.region = region
@@ -188,20 +195,18 @@ extension ViewController: CLLocationManagerDelegate {
                 
                 let location = CLLocation(latitude: latitude, longitude: longitude)
                 let place = Place(location: location, reference: reference, name: name, address: address)
-                if count < 5 {
+                if count < 3 {
                   self.places.append(place)
+                  let annotation = PlaceAnnotation(location: place.location!.coordinate, title: place.placeName)
+                  DispatchQueue.main.async {
+                    self.mapView.addAnnotation(annotation)
+                  }
                 }
                 else {
                   self.places1.append(place)
                 }
                 count += 1
-                let annotation = PlaceAnnotation(location: place.location!.coordinate, title: place.placeName)
-                DispatchQueue.main.async {
-                  self.mapView.addAnnotation(annotation)
-                }
               }
-//              print("Place: " + self.places.description)
-//              print("Place1: " + self.places1.description)
             }
           }
         }
@@ -215,7 +220,7 @@ extension ViewController: ARDataSource {
     let annotationView = AnnotationView()
     annotationView.annotation = viewForAnnotation
     annotationView.delegate = self
-    annotationView.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
+    annotationView.frame = CGRect(x: 0, y: 0, width: 300, height: 100)
     
     return annotationView
   }
@@ -226,18 +231,18 @@ extension ViewController: AnnotationViewDelegate {
     print("touched")
     if let annotation = annotationView.annotation as? Place {
       networkMgr.loadDetailInformation(forPlace: annotation) { resultDict, error in
-//      let placesLoader = PlacesLoader()
-//      placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
+        //      let placesLoader = PlacesLoader()
+        //      placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
         annotation.offers = resultDict?.object(forKey: "offers") as? String
         print("annotation offer: \(annotation.offers ?? "no offers")")
         self.showInfoView(forPlace: annotation)
-      
-//        if let infoDict = resultDict?.object(forKey: "result") as? NSDictionary {
-//          annotation.phoneNumber = infoDict.object(forKey: "offers") as? String
-////          annotation.website = infoDict.object(forKey: "website") as? String
-//
-//          self.showInfoView(forPlace: annotation)
-//        }
+        
+        //        if let infoDict = resultDict?.object(forKey: "result") as? NSDictionary {
+        //          annotation.phoneNumber = infoDict.object(forKey: "offers") as? String
+        ////          annotation.website = infoDict.object(forKey: "website") as? String
+        //
+        //          self.showInfoView(forPlace: annotation)
+        //        }
       }
       
     }
