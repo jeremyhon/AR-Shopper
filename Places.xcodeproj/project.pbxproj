@@ -353,12 +353,8 @@
 				22518E9B1F9C6A0F001E304D /* Clothes.swift in Sources */,
 				8FFCD7C01DC4A39A009E3855 /* ARAnnotation.swift in Sources */,
 				8FFCD7C51DC4A39A009E3855 /* DebugMapViewController.swift in Sources */,
-<<<<<<< Updated upstream
 				8FFCD7D41DC4A85B009E3855 /* NetworkManager.swift in Sources */,
-=======
 				2276B4991F9C617600680D7F /* CheckoutViewController.swift in Sources */,
-				8FFCD7D41DC4A85B009E3855 /* PlacesLoader.swift in Sources */,
->>>>>>> Stashed changes
 				8FFCD7C11DC4A39A009E3855 /* ARAnnotationView.swift in Sources */,
 				6F3984EB1F9C0AA600CAD4D5 /* PKCS12.swift in Sources */,
 				8FFCD7C31DC4A39A009E3855 /* ARTrackingManager.swift in Sources */,
