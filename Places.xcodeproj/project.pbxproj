@@ -54,7 +54,7 @@
 		6F3984EC1F9C0BCF00CAD4D5 /* cert.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert.p12; sourceTree = "<group>"; };
 		796D60F5C52425E8A3DA39E2 /* Pods_Places.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Places.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7404861DCF8834009A6F0B /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
-		8FFCD79D1DC4A204009E3855 /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FFCD79D1DC4A204009E3855 /* Radius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radius.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFCD7A01DC4A204009E3855 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FFCD7A21DC4A204009E3855 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8FFCD7A51DC4A204009E3855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 		8FFCD79E1DC4A204009E3855 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8FFCD79D1DC4A204009E3855 /* Places.app */,
+				8FFCD79D1DC4A204009E3855 /* Radius.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,9 +207,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8FFCD79C1DC4A204009E3855 /* Places */ = {
+		8FFCD79C1DC4A204009E3855 /* Radius */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8FFCD7AF1DC4A204009E3855 /* Build configuration list for PBXNativeTarget "Places" */;
+			buildConfigurationList = 8FFCD7AF1DC4A204009E3855 /* Build configuration list for PBXNativeTarget "Radius" */;
 			buildPhases = (
 				4A451200375E31767B6B4185 /* [CP] Check Pods Manifest.lock */,
 				8FFCD7991DC4A204009E3855 /* Sources */,
@@ -222,9 +222,9 @@
 			);
 			dependencies = (
 			);
-			name = Places;
+			name = Radius;
 			productName = Places;
-			productReference = 8FFCD79D1DC4A204009E3855 /* Places.app */;
+			productReference = 8FFCD79D1DC4A204009E3855 /* Radius.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -257,7 +257,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8FFCD79C1DC4A204009E3855 /* Places */,
+				8FFCD79C1DC4A204009E3855 /* Radius */,
 			);
 		};
 /* End PBXProject section */
@@ -529,7 +529,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8FFCD7AF1DC4A204009E3855 /* Build configuration list for PBXNativeTarget "Places" */ = {
+		8FFCD7AF1DC4A204009E3855 /* Build configuration list for PBXNativeTarget "Radius" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FFCD7B01DC4A204009E3855 /* Debug */,
