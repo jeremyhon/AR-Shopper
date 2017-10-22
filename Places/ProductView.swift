@@ -22,16 +22,16 @@
 
 import UIKit
 
-protocol AnnotationViewDelegate {
-  func didTouch(annotationView: AnnotationView)
+protocol ProductViewDelegate {
+  func didTouch(productView: ProductView)
 }
 
 
-class AnnotationView: ARAnnotationView {
+class ProductView: ARAnnotationView {
   var titleLabel: UILabel?
   var distanceLabel: UILabel?
   var imageLabel: UILabel?
-  var delegate: AnnotationViewDelegate?
+  var delegate: ProductViewDelegate?
   
   override func didMoveToSuperview() {
     super.didMoveToSuperview()
@@ -57,8 +57,8 @@ class AnnotationView: ARAnnotationView {
     distanceLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
     distanceLabel?.textColor = UIColor.green
     distanceLabel?.font = UIFont.systemFont(ofSize: 12)
-    self.addSubview(distanceLabel!)
-  
+//    self.addSubview(distanceLabel!)
+    
     imageLabel = UILabel(frame: CGRect(x: 50, y: 0, width: self.frame.size.width, height: 20))
     imageLabel?.numberOfLines = 0
     
@@ -83,6 +83,23 @@ class AnnotationView: ARAnnotationView {
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    delegate?.didTouch(annotationView: self)
+    delegate?.didTouch(productView: self)
   }
 }
+
+extension UILabel
+{
+  func addImage(imageName: String)
+  {
+    print("Adding image")
+    print("Image Name: " + imageName)
+    let attachment:NSTextAttachment = NSTextAttachment()
+    attachment.image = UIImage(named: imageName)
+    let attachmentString:NSAttributedString = NSAttributedString(attachment: attachment)
+    let myString:NSMutableAttributedString = NSMutableAttributedString(string: self.text!)
+    myString.append(attachmentString)
+    
+    self.attributedText = myString
+  }
+}
+
