@@ -43,47 +43,23 @@ class AnnotationView: ARAnnotationView {
     titleLabel?.removeFromSuperview()
     distanceLabel?.removeFromSuperview()
     imageLabel?.removeFromSuperview()
-    
-    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
-    label.numberOfLines = 0
-    label.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
-//    label.textColor = UIColor.white
-//    self.addSubview(label)
-    self.titleLabel = label
-//    self.imageLabel = label
-
-//    distanceLabel = UILabel(frame: CGRect(x: 10, y: 30, width: self.frame.size.width, height: 20))
-//    distanceLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
-//    distanceLabel?.textColor = UIColor.green
-//    distanceLabel?.font = UIFont.systemFont(ofSize: 12)
-//    self.addSubview(distanceLabel!)
   
     imageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
     imageLabel?.numberOfLines = 0
     
     if let annotation = annotation as? Place {
-      titleLabel?.text = ""
-//      distanceLabel?.text = String(format: "%.2f km", annotation.distanceFromUser / 1000)
       imageLabel?.text = ""
       imageLabel?.addImage(imageName: annotation.reference)
-      
       if annotation.address == "nil" {
         imageLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
-        
       }
-//      imageLabel?.addImage(imageName: "icons8-Home-50.png")
     }
-    
-    
     self.addSubview(imageLabel!)
   }
   
   
   override func layoutSubviews() {
     super.layoutSubviews()
-//    titleLabel?.frame = CGRect(x: 0, y: 0, width: 250, height: 100)
-//    titleLabel?.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
-//    distanceLabel?.frame = CGRect(x: 10, y: 30, width: self.frame.size.width, height: 20)
     imageLabel?.frame = CGRect(x: 0, y: 0, width: 500, height: 200)
     if let annotation = annotation as? Place {
       if annotation.address == "nil" {

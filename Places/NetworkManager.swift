@@ -55,7 +55,6 @@ class NetworkManager {
   func getStores(location: CLLocation, radius: Int = 30, handler: @escaping (NSDictionary?, NSError?) -> Void) {
     let latitude = location.coordinate.latitude
     let longitude = location.coordinate.longitude
-    print("lat", latitude, ", lng", longitude)
     
     let dict: NSDictionary = [
       "results": [

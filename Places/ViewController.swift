@@ -23,14 +23,12 @@
 import UIKit
 
 import CoreLocation
-import MapKit
+//import MapKit
 
 class ViewController: UIViewController {
   
   fileprivate var places = [Place]()
   fileprivate var places1 = [Place]()
-  fileprivate let locationManager = CLLocationManager()
-  @IBOutlet weak var mapView: MKMapView!
   var arViewController: ARViewController!
   var arViewController1: ARViewController!
   var startedLoadingPOIs = false
@@ -40,11 +38,35 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    locationManager.delegate = self
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    locationManager.startUpdatingLocation()
-    locationManager.requestWhenInUseAuthorization()
-    mapView.userTrackingMode = MKUserTrackingMode.followWithHeading
+    let location = CLLocation(latitude: 36.12256531, longitude: -115.16667458)
+    
+    if !startedLoadingPOIs {
+      startedLoadingPOIs = true
+      networkMgr.getStores(location: location, radius: 1000) { placesDict, error in
+        if let dict = placesDict {
+          guard let placesArray = dict.object(forKey: "results") as? [NSDictionary]  else { return }
+          var count = 0
+          for placeDict in placesArray {
+            let latitude = placeDict.value(forKeyPath: "lat") as! CLLocationDegrees
+            let longitude = placeDict.value(forKeyPath: "lng") as! CLLocationDegrees
+            let reference = placeDict.object(forKey: "reference") as! String
+            let name = placeDict.object(forKey: "name") as! String
+            let address = placeDict.object(forKey: "address") as! String
+            
+            let location = CLLocation(latitude: latitude, longitude: longitude)
+            let place = Place(location: location, reference: reference, name: name, address: address)
+            if count < 3 {
+              self.places.append(place)
+              
+            }
+            else {
+              self.places1.append(place)
+            }
+            count += 1
+          }
+        }
+      }
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -58,7 +80,7 @@ class ViewController: UIViewController {
     self.arViewController.dataSource = self
     self.arViewController.maxDistance = 0
     self.arViewController.maxVisibleAnnotations = 30
-    self.arViewController.maxVerticalLevel = 5
+    self.arViewController.maxVerticalLevel = 1
     self.arViewController.headingSmoothingFactor = 0.05
     
     self.arViewController.trackingManager.userDistanceFilter = 25
@@ -73,7 +95,7 @@ class ViewController: UIViewController {
     self.arViewController1.dataSource = self
     self.arViewController1.maxDistance = 0
     self.arViewController1.maxVisibleAnnotations = 30
-    self.arViewController1.maxVerticalLevel = 5
+    self.arViewController1.maxVerticalLevel = 1
     self.arViewController1.headingSmoothingFactor = 0.05
     
     self.arViewController1.trackingManager.userDistanceFilter = 25
@@ -131,17 +153,14 @@ class ViewController: UIViewController {
   func showInfoView(forPlace place: Place) {
     let alert = UIAlertController(title: place.placeName , message: place.infoText, preferredStyle: UIAlertControllerStyle.alert)
     if self.secondScreen {
-      print("YES!")
       let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (_) -> Void in
         
       }
-      print("Adding okAction")
       alert.addAction(okAction)
       
       arViewController1.present(alert, animated: true, completion: nil)
     }
     else {
-      print("NO!")
       let okAction = UIAlertAction(title: "ENTER STORE", style: UIAlertActionStyle.default) { (_) -> Void in
         self.secondScreen = true
         self.arViewController.presentingViewController?.dismiss(animated: false, completion: nil)
@@ -160,68 +179,12 @@ class ViewController: UIViewController {
   }
 }
 
-extension ViewController: CLLocationManagerDelegate {
-  func locationManagerShouldDisplayHeadingCalibration(_ manager: CLLocationManager) -> Bool {
-    return true
-  }
-  
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    
-    if locations.count > 0 {
-      let location = locations.last!
-      //      let location = CLLocation(latitude: 36.12256531, longitude: -115.16667458)
-      
-      if location.horizontalAccuracy < 100 {
-        manager.stopUpdatingLocation()
-        print(location)
-        let span = MKCoordinateSpan(latitudeDelta: 0.010, longitudeDelta: 0.010)
-        let region = MKCoordinateRegion(center: location.coordinate, span: span)
-        
-        mapView.region = region
-        
-        if !startedLoadingPOIs {
-          startedLoadingPOIs = true
-          networkMgr.getStores(location: location, radius: 1000) { placesDict, error in
-            if let dict = placesDict {
-              guard let placesArray = dict.object(forKey: "results") as? [NSDictionary]  else { return }
-              var count = 0
-              for placeDict in placesArray {
-                let latitude = placeDict.value(forKeyPath: "lat") as! CLLocationDegrees
-                let longitude = placeDict.value(forKeyPath: "lng") as! CLLocationDegrees
-                let reference = placeDict.object(forKey: "reference") as! String
-                let name = placeDict.object(forKey: "name") as! String
-                let address = placeDict.object(forKey: "address") as! String
-                
-                let location = CLLocation(latitude: latitude, longitude: longitude)
-                let place = Place(location: location, reference: reference, name: name, address: address)
-                if count < 3 {
-                  self.places.append(place)
-                  
-                }
-                else {
-                  self.places1.append(place)
-                }
-                count += 1
-                let annotation = PlaceAnnotation(location: place.location!.coordinate, title: place.placeName)
-                DispatchQueue.main.async {
-                  self.mapView.addAnnotation(annotation)
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
 extension ViewController: ARDataSource {
   func ar(_ arViewController: ARViewController, viewForAnnotation: ARAnnotation) -> ARAnnotationView {
     let annotationView = AnnotationView()
     annotationView.annotation = viewForAnnotation
     annotationView.delegate = self
     if let annotation = viewForAnnotation as? Place {
-      print(annotation.address)
       if annotation.address == "nil" {
         annotationView.frame = CGRect(x: 0, y: 0, width: 150, height: 200)
         return annotationView
@@ -235,15 +198,11 @@ extension ViewController: ARDataSource {
 
 extension ViewController: AnnotationViewDelegate {
   func didTouch(annotationView: AnnotationView) {
-    print("touched")
     if let annotation = annotationView.annotation as? Place {
       networkMgr.loadDetailInformation(forPlace: annotation) { resultDict, error in
         annotation.offers = resultDict?.object(forKey: "offers") as? String
-        print("annotation offer: \(annotation.offers ?? "no offers")")
         self.showInfoView(forPlace: annotation)
-        
       }
-      
     }
   }
 }
