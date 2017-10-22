@@ -33,6 +33,7 @@ class ViewController: UIViewController {
   var arViewController1: ARViewController!
   var startedLoadingPOIs = false
   var networkMgr = NetworkManager()
+  var loaded = false
   var secondScreen = false
   
   override func viewDidLoad() {
@@ -66,6 +67,14 @@ class ViewController: UIViewController {
           }
         }
       }
+    }
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    if loaded == false {
+      showARController("")
+      loaded = true
     }
   }
   
@@ -165,7 +174,6 @@ class ViewController: UIViewController {
         self.secondScreen = true
         self.arViewController.presentingViewController?.dismiss(animated: false, completion: nil)
         self.present(self.arViewController1, animated: false, completion: nil)
-        print("presenting product view")
       }
       let backAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (_) -> Void in
         print("cancel")
