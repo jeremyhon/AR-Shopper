@@ -65,7 +65,7 @@ class ViewController: UIViewController {
     arViewController.setAnnotations(places)
     arViewController.uiOptions.debugEnabled = false
     arViewController.uiOptions.closeButtonEnabled = true
-
+    
     //creating second ARView
     print("Creating arViewController1")
     arViewController1 = ARViewController()
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
     arViewController1.maxVisibleAnnotations = 30
     arViewController1.maxVerticalLevel = 5
     arViewController1.headingSmoothingFactor = 0.05
-
+    
     arViewController1.trackingManager.userDistanceFilter = 25
     arViewController1.trackingManager.reloadDistanceFilter = 75
     arViewController1.setAnnotations(places1)
@@ -117,19 +117,22 @@ extension ViewController: CLLocationManagerDelegate {
         
         if !startedLoadingPOIs {
           startedLoadingPOIs = true
-          networkMgr.getStores(location: location, radius: 1000)
-          print("moving on")
-          let loader = PlacesLoader()
-          loader.loadPOIS(location: location, radius: 1000) { placesDict, error in
+          // let loader = PlacesLoader()
+          // loader.loadPOIS(location: location, radius: 1000) { placesDict, error in
+          networkMgr.getStores(location: location, radius: 1000) { placesDict, error in
             if let dict = placesDict {
               guard let placesArray = dict.object(forKey: "results") as? [NSDictionary]  else { return }
               var count = 0
               for placeDict in placesArray {
-                let latitude = placeDict.value(forKeyPath: "geometry.location.lat") as! CLLocationDegrees
-                let longitude = placeDict.value(forKeyPath: "geometry.location.lng") as! CLLocationDegrees
+                // let latitude = placeDict.value(forKeyPath: "geometry.location.lat") as! CLLocationDegrees
+                // let longitude = placeDict.value(forKeyPath: "geometry.location.lng") as! CLLocationDegrees
+                let latitude = placeDict.value(forKeyPath: "lat") as! CLLocationDegrees
+                let longitude = placeDict.value(forKeyPath: "lng") as! CLLocationDegrees
                 let reference = placeDict.object(forKey: "reference") as! String
                 let name = placeDict.object(forKey: "name") as! String
-                let address = placeDict.object(forKey: "vicinity") as! String
+                // let address = placeDict.object(forKey: "vicinity") as! String
+                let address = placeDict.object(forKey: "address") as! String
+                print(placeDict)
                 
                 let location = CLLocation(latitude: latitude, longitude: longitude)
                 let place = Place(location: location, reference: reference, name: name, address: address)
