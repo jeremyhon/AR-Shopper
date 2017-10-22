@@ -28,9 +28,11 @@ import MapKit
 class ViewController: UIViewController {
   
   fileprivate var places = [Place]()
+  fileprivate var places1 = [Place]()
   fileprivate let locationManager = CLLocationManager()
   @IBOutlet weak var mapView: MKMapView!
   var arViewController: ARViewController!
+  var arViewController1: ARViewController!
   var startedLoadingPOIs = false
   var networkMgr = NetworkManager()
   
@@ -50,6 +52,7 @@ class ViewController: UIViewController {
   }
   
   @IBAction func showARController(_ sender: Any) {
+    print("Creating arViewController")
     arViewController = ARViewController()
     arViewController.dataSource = self
     arViewController.maxDistance = 0
@@ -62,13 +65,35 @@ class ViewController: UIViewController {
     arViewController.setAnnotations(places)
     arViewController.uiOptions.debugEnabled = false
     arViewController.uiOptions.closeButtonEnabled = true
+
+    //creating second ARView
+    print("Creating arViewController1")
+    arViewController1 = ARViewController()
+    arViewController1.dataSource = self
+    arViewController1.maxDistance = 0
+    arViewController1.maxVisibleAnnotations = 30
+    arViewController1.maxVerticalLevel = 5
+    arViewController1.headingSmoothingFactor = 0.05
+
+    arViewController1.trackingManager.userDistanceFilter = 25
+    arViewController1.trackingManager.reloadDistanceFilter = 75
+    arViewController1.setAnnotations(places1)
+    arViewController1.uiOptions.debugEnabled = false
+    arViewController1.uiOptions.closeButtonEnabled = true
     
+    print("Presenting arViewController")
     self.present(arViewController, animated: true, completion: nil)
   }
   
   func showInfoView(forPlace place: Place) {
     let alert = UIAlertController(title: place.placeName , message: place.infoText, preferredStyle: UIAlertControllerStyle.alert)
-    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (_) -> Void in
+      
+      self.arViewController.presentingViewController?.dismiss(animated: true, completion: nil)
+      self.present(self.arViewController1, animated: true, completion: nil)
+    }
+    print("Adding okAction")
+    alert.addAction(okAction)
     
     arViewController.present(alert, animated: true, completion: nil)
   }
@@ -98,7 +123,7 @@ extension ViewController: CLLocationManagerDelegate {
           loader.loadPOIS(location: location, radius: 1000) { placesDict, error in
             if let dict = placesDict {
               guard let placesArray = dict.object(forKey: "results") as? [NSDictionary]  else { return }
-              
+              var count = 0
               for placeDict in placesArray {
                 let latitude = placeDict.value(forKeyPath: "geometry.location.lat") as! CLLocationDegrees
                 let longitude = placeDict.value(forKeyPath: "geometry.location.lng") as! CLLocationDegrees
@@ -108,13 +133,20 @@ extension ViewController: CLLocationManagerDelegate {
                 
                 let location = CLLocation(latitude: latitude, longitude: longitude)
                 let place = Place(location: location, reference: reference, name: name, address: address)
-                
-                self.places.append(place)
+                if count < 5 {
+                  self.places.append(place)
+                }
+                else {
+                  self.places1.append(place)
+                }
+                count += 1
                 let annotation = PlaceAnnotation(location: place.location!.coordinate, title: place.placeName)
                 DispatchQueue.main.async {
                   self.mapView.addAnnotation(annotation)
                 }
               }
+              print("Place: " + self.places.description)
+              print("Place1: " + self.places1.description)
             }
           }
         }
