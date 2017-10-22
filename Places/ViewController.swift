@@ -152,30 +152,32 @@ class ViewController: UIViewController {
     }
     
     
-    let checkoutLabel = UILabel(frame: CGRect(x: 10, y: self.view.bounds.size.height - 30, width: 80, height: 21))
+    let checkoutLabel = UILabel(frame: CGRect(x: 0, y: self.view.bounds.size.height - 50, width: self.view.bounds.size.width/2, height: 50))
     checkoutLabel.textAlignment = .left
-    checkoutLabel.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+    checkoutLabel.backgroundColor = UIColor(red:0.0, green:1.0, blue:0.0, alpha: 0.7)
     checkoutLabel.textColor = UIColor.white
     checkoutLabel.text = "Checkout"
+    checkoutLabel.textAlignment = .center
     checkoutLabel.isUserInteractionEnabled = true
     let tapGR = UITapGestureRecognizer(target: self, action: #selector(goCheckout))
     checkoutLabel.addGestureRecognizer(tapGR)
     self.arViewController1.view.addSubview(checkoutLabel)
     
-    let scanLabel = UILabel(frame: CGRect(x: self.view.bounds.size.width - 60, y: self.view.bounds.size.height - 30, width: 60, height: 21))
+    let scanLabel = UILabel(frame: CGRect(x: self.view.bounds.size.width/2, y: self.view.bounds.size.height - 50, width: self.view.bounds.size.width/2, height: 50))
     scanLabel.textAlignment = .right
-    scanLabel.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+    scanLabel.backgroundColor = UIColor(red:1.0, green:0.0, blue:0.0, alpha: 0.7)
     scanLabel.textColor = UIColor.white
     scanLabel.text = "Scan"
+    scanLabel.textAlignment = .center
     scanLabel.isUserInteractionEnabled = true
     let scantapGR = UITapGestureRecognizer(target: self, action: #selector(goScan))
     scanLabel.addGestureRecognizer(scantapGR)
     self.arViewController1.view.addSubview(scanLabel)
     
     var filterLabel: UILabel?
-    filterLabel = UILabel(frame: CGRect(x: 5, y: 30, width: 100,height: 200))
+    filterLabel = UILabel(frame: CGRect(x: 5, y: 10, width: 116,height: 30))
     filterLabel?.text = ""
-    filterLabel?.addImage(imageName: "sweater.png")
+    filterLabel?.addImage(imageName: "my size.png")
     filterLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
     filterLabel?.isUserInteractionEnabled = true
     let filtertapGR = UITapGestureRecognizer(target: self, action: #selector(goFilter))
@@ -236,7 +238,6 @@ class ViewController: UIViewController {
     if let viewWithTag = self.arViewController1.view.viewWithTag(5) {
       viewWithTag.removeFromSuperview()
       print("Tag 5 removed")
-      
     }
     else {
       print("Tag 5 not found")
