@@ -21,18 +21,19 @@ class ProductViewDataSource: ViewController, ProductViewDelegate {
   }
   
   func didTouch(productView: ProductView) {
-    if let annotation = productView.annotation as? Place {
-      let placesLoader = PlacesLoader()
-      placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
-        
-        if let infoDict = resultDict?.object(forKey: "result") as? NSDictionary {
-          annotation.phoneNumber = infoDict.object(forKey: "formatted_phone_number") as? String
-          annotation.website = infoDict.object(forKey: "website") as? String
-          
-          self.showInfoView(forPlace: annotation)
-        }
-      }
-      
-    }
+    print("product touched")
+//    if let annotation = productView.annotation as? Place {
+//      let placesLoader = PlacesLoader()
+//      placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
+//        
+//        if let infoDict = resultDict?.object(forKey: "result") as? NSDictionary {
+//          annotation.phoneNumber = infoDict.object(forKey: "formatted_phone_number") as? String
+//          annotation.website = infoDict.object(forKey: "website") as? String
+//          
+//          self.showInfoView(forPlace: annotation)
+//        }
+//      }
+//      
+//    }
   }
 }

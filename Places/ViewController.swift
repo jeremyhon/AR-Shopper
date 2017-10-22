@@ -136,7 +136,6 @@ class ViewController: UIViewController {
       alert.addAction(okAction)
       
       arViewController1.present(alert, animated: true, completion: nil)
-      
     }
     else {
       print("NO!")
@@ -144,12 +143,15 @@ class ViewController: UIViewController {
         
         self.arViewController.presentingViewController?.dismiss(animated: true, completion: nil)
         self.present(self.arViewController1, animated: true, completion: nil)
+        self.secondScreen = true
       }
-      print("Adding okAction")
+      let backAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (_) -> Void in
+        print("cancel")
+      }
       alert.addAction(okAction)
+      alert.addAction(backAction)
       
       arViewController.present(alert, animated: true, completion: nil)
-      self.secondScreen = true
     }
     
   }
@@ -173,22 +175,16 @@ extension ViewController: CLLocationManagerDelegate {
         
         if !startedLoadingPOIs {
           startedLoadingPOIs = true
-          // let loader = PlacesLoader()
-          // loader.loadPOIS(location: location, radius: 1000) { placesDict, error in
           networkMgr.getStores(location: location, radius: 1000) { placesDict, error in
             if let dict = placesDict {
               guard let placesArray = dict.object(forKey: "results") as? [NSDictionary]  else { return }
               var count = 0
               for placeDict in placesArray {
-                // let latitude = placeDict.value(forKeyPath: "geometry.location.lat") as! CLLocationDegrees
-                // let longitude = placeDict.value(forKeyPath: "geometry.location.lng") as! CLLocationDegrees
                 let latitude = placeDict.value(forKeyPath: "lat") as! CLLocationDegrees
                 let longitude = placeDict.value(forKeyPath: "lng") as! CLLocationDegrees
                 let reference = placeDict.object(forKey: "reference") as! String
                 let name = placeDict.object(forKey: "name") as! String
-                // let address = placeDict.object(forKey: "vicinity") as! String
                 let address = placeDict.object(forKey: "address") as! String
-                print(placeDict)
                 
                 let location = CLLocation(latitude: latitude, longitude: longitude)
                 let place = Place(location: location, reference: reference, name: name, address: address)
@@ -204,8 +200,8 @@ extension ViewController: CLLocationManagerDelegate {
                   self.mapView.addAnnotation(annotation)
                 }
               }
-              print("Place: " + self.places.description)
-              print("Place1: " + self.places1.description)
+//              print("Place: " + self.places.description)
+//              print("Place1: " + self.places1.description)
             }
           }
         }
@@ -227,16 +223,21 @@ extension ViewController: ARDataSource {
 
 extension ViewController: AnnotationViewDelegate {
   func didTouch(annotationView: AnnotationView) {
+    print("touched")
     if let annotation = annotationView.annotation as? Place {
-      let placesLoader = PlacesLoader()
-      placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
-        
-        if let infoDict = resultDict?.object(forKey: "result") as? NSDictionary {
-          annotation.phoneNumber = infoDict.object(forKey: "formatted_phone_number") as? String
-          annotation.website = infoDict.object(forKey: "website") as? String
-          
-          self.showInfoView(forPlace: annotation)
-        }
+      networkMgr.loadDetailInformation(forPlace: annotation) { resultDict, error in
+//      let placesLoader = PlacesLoader()
+//      placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
+        annotation.offers = resultDict?.object(forKey: "offers") as? String
+        print("annotation offer: \(annotation.offers ?? "no offers")")
+        self.showInfoView(forPlace: annotation)
+      
+//        if let infoDict = resultDict?.object(forKey: "result") as? NSDictionary {
+//          annotation.phoneNumber = infoDict.object(forKey: "offers") as? String
+////          annotation.website = infoDict.object(forKey: "website") as? String
+//
+//          self.showInfoView(forPlace: annotation)
+//        }
       }
       
     }

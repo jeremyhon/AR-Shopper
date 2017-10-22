@@ -32,7 +32,7 @@
 		8FFCD7CE1DC4A3B4009E3855 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FFCD7CD1DC4A3B4009E3855 /* CoreMotion.framework */; };
 		8FFCD7D01DC4A3BB009E3855 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FFCD7CF1DC4A3BB009E3855 /* MapKit.framework */; };
 		8FFCD7D21DC4A539009E3855 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFCD7D11DC4A539009E3855 /* Place.swift */; };
-		8FFCD7D41DC4A85B009E3855 /* PlacesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFCD7D31DC4A85B009E3855 /* PlacesLoader.swift */; };
+		8FFCD7D41DC4A85B009E3855 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFCD7D31DC4A85B009E3855 /* NetworkManager.swift */; };
 		8FFCD7D61DC608FE009E3855 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFCD7D51DC608FE009E3855 /* PlaceAnnotation.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +65,7 @@
 		8FFCD7CD1DC4A3B4009E3855 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		8FFCD7CF1DC4A3BB009E3855 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8FFCD7D11DC4A539009E3855 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
-		8FFCD7D31DC4A85B009E3855 /* PlacesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesLoader.swift; sourceTree = "<group>"; };
+		8FFCD7D31DC4A85B009E3855 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8FFCD7D51DC608FE009E3855 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		A63EF5FB9A61A72A9E7ACA17 /* Pods-Places.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Places.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Places/Pods-Places.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,7 +115,7 @@
 				6F3984EE1F9C4DD300CAD4D5 /* ProductView.swift */,
 				6F3984F01F9C520600CAD4D5 /* ProductViewDataSource.swift */,
 				8FFCD7D51DC608FE009E3855 /* PlaceAnnotation.swift */,
-				8FFCD7D31DC4A85B009E3855 /* PlacesLoader.swift */,
+				8FFCD7D31DC4A85B009E3855 /* NetworkManager.swift */,
 				6F3984EA1F9C0AA600CAD4D5 /* PKCS12.swift */,
 				8FFCD7A41DC4A204009E3855 /* Main.storyboard */,
 				8FFCD7B21DC4A39A009E3855 /* HDAugmentedReality */,
@@ -337,7 +337,7 @@
 				6F3984EF1F9C4DD300CAD4D5 /* ProductView.swift in Sources */,
 				8FFCD7C01DC4A39A009E3855 /* ARAnnotation.swift in Sources */,
 				8FFCD7C51DC4A39A009E3855 /* DebugMapViewController.swift in Sources */,
-				8FFCD7D41DC4A85B009E3855 /* PlacesLoader.swift in Sources */,
+				8FFCD7D41DC4A85B009E3855 /* NetworkManager.swift in Sources */,
 				8FFCD7C11DC4A39A009E3855 /* ARAnnotationView.swift in Sources */,
 				6F3984EB1F9C0AA600CAD4D5 /* PKCS12.swift in Sources */,
 				8FFCD7C31DC4A39A009E3855 /* ARTrackingManager.swift in Sources */,

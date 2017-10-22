@@ -28,19 +28,20 @@ class Place: ARAnnotation {
   let placeName: String
   let address: String
   var phoneNumber: String?
+  var offers: String?
   var website: String?
   
   var infoText: String {
     get {
       var info = "Address: \(address)"
       
-      if phoneNumber != nil {
-        info += "\nPhone: \(phoneNumber!)"
+      if offers != nil {
+        info += "\nOffers: \(offers!)"
       }
       
-      if website != nil {
-        info += "\nweb: \(website!)"
-      }
+//      if website != nil {
+//        info += "\nweb: \(website!)"
+//      }
       return info
     }
   }
