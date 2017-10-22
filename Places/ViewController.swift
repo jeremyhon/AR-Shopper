@@ -70,7 +70,7 @@ class ViewController: UIViewController {
     //creating second ARView (for in store items listing)
     print("Creating arViewController1")
     arViewController1 = ARViewController()
-    arViewController1.dataSource = self
+    arViewController1.dataSource = ProductViewDataSource()
     arViewController1.maxDistance = 0
     arViewController1.maxVisibleAnnotations = 30
     arViewController1.maxVerticalLevel = 5
