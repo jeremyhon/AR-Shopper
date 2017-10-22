@@ -63,43 +63,50 @@ class NetworkManager {
           "reference": "ralph.png",
           "address": "123 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
           "lat":latitude+0.0003,
-          "lng":longitude
+          "lng":longitude,
+          "tag":1
         ],[
           "name": "Kate Spade",
           "reference": "kate.png",
           "address": "124 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
           "lat":latitude+0.0006,
-          "lng":longitude+0.0003
+          "lng":longitude+0.0003,
+          "tag":2
         ],[
           "name": "COACH",
           "reference": "coach.png",
           "address": "125 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
           "lat":latitude+0.0009,
-          "lng":longitude-0.0003
+          "lng":longitude-0.0003,
+          "tag":3
         ],[
           "name": "Shirt",
           "reference": "shirt.png",
           "address": "nil",
           "lat":latitude+0.000212,
-          "lng":longitude-0.000212
+          "lng":longitude-0.000212,
+          "tag":4
         ],[
           "name": "Polo",
           "reference": "polo.png",
           "address": "nil",
           "lat":latitude+0.00027,
-          "lng":longitude+0.00013
+          "lng":longitude+0.00013,
+          "tag":5
         ],[
           "name": "Jeans",
           "reference": "jeans.png",
           "address": "nil",
           "lat":latitude+0.00027,
-          "lng":longitude-0.00013
+          "lng":longitude-0.00013,
+          "tag":6
         ],[
           "name": "Sweater",
           "reference": "sweater.png",
           "address": "nil",
           "lat":latitude+0.000212,
-          "lng":longitude+0.000212
+          "lng":longitude+0.000212,
+          "tag":7
         ]
       ]
     ]

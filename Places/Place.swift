@@ -30,6 +30,7 @@ class Place: ARAnnotation {
   var phoneNumber: String?
   var offers: String?
   var website: String?
+  var tag: Int?
   
   var infoText: String {
     get {
@@ -46,10 +47,11 @@ class Place: ARAnnotation {
     }
   }
   
-  init(location: CLLocation, reference: String, name: String, address: String) {
+  init(location: CLLocation, reference: String, name: String, address: String, tag: Int) {
     placeName = name
     self.reference = reference
     self.address = address
+    self.tag = tag
     
     super.init()
     

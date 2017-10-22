@@ -53,9 +53,10 @@ class ViewController: UIViewController {
             let reference = placeDict.object(forKey: "reference") as! String
             let name = placeDict.object(forKey: "name") as! String
             let address = placeDict.object(forKey: "address") as! String
+            let tag = placeDict.object(forKey: "tag") as! Int
             
             let location = CLLocation(latitude: latitude, longitude: longitude)
-            let place = Place(location: location, reference: reference, name: name, address: address)
+            let place = Place(location: location, reference: reference, name: name, address: address, tag: tag)
             if count < 3 {
               self.places.append(place)
               
@@ -64,6 +65,8 @@ class ViewController: UIViewController {
               self.places1.append(place)
             }
             count += 1
+            print("Places: ", self.places)
+            print("Places1: ", self.places1)
           }
         }
       }
@@ -168,6 +171,16 @@ class ViewController: UIViewController {
     let scantapGR = UITapGestureRecognizer(target: self, action: #selector(goScan))
     scanLabel.addGestureRecognizer(scantapGR)
     self.arViewController1.view.addSubview(scanLabel)
+    
+    var filterLabel: UILabel?
+    filterLabel = UILabel(frame: CGRect(x: 5, y: 30, width: 100,height: 200))
+    filterLabel?.text = ""
+    filterLabel?.addImage(imageName: "sweater.png")
+    filterLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+    filterLabel?.isUserInteractionEnabled = true
+    let filtertapGR = UITapGestureRecognizer(target: self, action: #selector(goFilter))
+    filterLabel?.addGestureRecognizer(filtertapGR)
+    self.arViewController1.view.addSubview(filterLabel!)
   }
   
   func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
@@ -214,6 +227,28 @@ class ViewController: UIViewController {
   
   func goToSecondScreen() {
     self.secondScreen = true
+  }
+  
+  func goFilter() {
+    print("Filtering")
+    self.places1 = Array(self.places1.prefix(2))
+    print("Filtered Places1: ", self.places1.description)
+    if let viewWithTag = self.arViewController1.view.viewWithTag(5) {
+      viewWithTag.removeFromSuperview()
+      print("Tag 5 removed")
+      
+    }
+    else {
+      print("Tag 5 not found")
+    }
+    
+    if let viewWithTag = self.arViewController1.view.viewWithTag(4) {
+      print("Tag 4 removed")
+      viewWithTag.removeFromSuperview()
+    }
+    else {
+      print("Tag 4 not found")
+    }
   }
   
   func goScan() {

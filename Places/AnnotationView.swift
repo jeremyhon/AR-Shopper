@@ -50,6 +50,7 @@ class AnnotationView: ARAnnotationView {
     if let annotation = annotation as? Place {
       imageLabel?.text = ""
       imageLabel?.addImage(imageName: annotation.reference)
+      imageLabel?.tag = annotation.tag!
       if annotation.address == "nil" {
         imageLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
       }
