@@ -32,6 +32,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var mapView: MKMapView!
   var arViewController: ARViewController!
   var startedLoadingPOIs = false
+  var networkMgr = NetworkManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -86,10 +87,13 @@ extension ViewController: CLLocationManagerDelegate {
         manager.stopUpdatingLocation()
         let span = MKCoordinateSpan(latitudeDelta: 0.014, longitudeDelta: 0.014)
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
+        
         mapView.region = region
         
         if !startedLoadingPOIs {
           startedLoadingPOIs = true
+          networkMgr.getStores(location: location, radius: 1000)
+          print("moving on")
           let loader = PlacesLoader()
           loader.loadPOIS(location: location, radius: 1000) { placesDict, error in
             if let dict = placesDict {

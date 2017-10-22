@@ -24,19 +24,20 @@ import Foundation
 import CoreLocation
 import Alamofire
 
-struct PlacesLoader {
-//  let apiURL = "https://maps.googleapis.com/maps/api/place/"
-  let apiURL = "https://sandbox.api.visa.com/merchantlocator/v1/locator"
-  let apiKey = "UjhQRVo1WlYwRDFFUVpXNVhTQUYyMTVFSTh5VzRZZ1Fzc0V0Q25JdW84QWJ3UHdMNDptdENOOEdZVGRFa2U4SnIzZDJwMFpCOU1lVTNqN2h4OHEz"
+class NetworkManager {
   
-  func loadPOIS(location: CLLocation, radius: Int = 30, handler: @escaping (NSDictionary?, NSError?) -> Void) {
-    print("Load pois")
-    let latitude = location.coordinate.latitude
-    let longitude = location.coordinate.longitude
-    
+  var manager: SessionManager!
+  var apiURL = "https://sandbox.api.visa.com/merchantlocator/v1/locator"
+  let user = "R8PEZ5ZV0D1EQZW5XSAF215EI8yW4YgQssEtCnIuo8AbwPwL4"
+  let password = "mtCN8GYTdEke8Jr3d2p0ZB9MeU3j7hx8q3"
+  var apiKey = "UjhQRVo1WlYwRDFFUVpXNVhTQUYyMTVFSTh5VzRZZ1Fzc0V0Q25JdW84QWJ3UHdMNDptdENOOEdZVGRFa2U4SnIzZDJwMFpCOU1lVTNqN2h4OHEz"
+  
+  init() {
     let cert = PKCS12.init(mainBundleResource: "cert", resourceType: "p12", password: "");
-    let sessionManager = Alamofire.SessionManager()
-    sessionManager.delegate.sessionDidReceiveChallenge = { session, challenge in
+    
+    let configuration = URLSessionConfiguration.default
+    manager = Alamofire.SessionManager(configuration: configuration)
+    manager.delegate.sessionDidReceiveChallenge = { session, challenge in
       if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodClientCertificate {
         return (URLSession.AuthChallengeDisposition.useCredential, cert.urlCredential());
       }
@@ -45,37 +46,101 @@ struct PlacesLoader {
       }
       return (URLSession.AuthChallengeDisposition.performDefaultHandling, Optional.none);
     }
-    
-    let parameters: Parameters = [
-      "searchOptions": [
-        "matchScore": "true",
-        "matchIndicators": "true",
-        "maxRecords": "5"
-      ],
-      "responseAttrList": [
-        "GNLOCATOR"
-      ],
-      "searchAttrList": [
-        "distanceUnit": "M",
-        "distance": "2",
-        "longitude": "-121.929163",
-        "latitude": "37.363922",
-        "merchantCountryCode": "840",
-        "merchantName": "Starbucks"
-      ],
-      "header": [
-        "startIndex": "0",
-        "requestMessageId": "Request_001",
-        "messageDateTime": "2017-10-21T23:15:52.903"
+  }
+  
+  func getStores(location: CLLocation, radius: Int = 30) {
+      print("Load pois")
+      let latitude = location.coordinate.latitude
+      let longitude = location.coordinate.longitude
+  
+      let parameters: Parameters = [
+        "searchOptions": [
+          "matchScore": "true",
+          "matchIndicators": "true",
+          "maxRecords": "5",
+          "wildcard": "*"
+        ],
+        "responseAttrList": [
+          "GNLOCATOR"
+        ],
+        "searchAttrList": [
+          "distanceUnit": "M",
+          "distance": "2",
+          "longitude": longitude,
+          "latitude": latitude,
+          "merchantCountryCode": "840",
+          "merchantName": "*"
+        ],
+        "header": [
+          "startIndex": "0",
+          "requestMessageId": "Request_001",
+          "messageDateTime": "2017-10-21T23:15:52.903"
+        ]
       ]
-    ]
+  
+      var headers: HTTPHeaders = [
+        "Accept": "application/json"
+      ]
     
-    let headers: HTTPHeaders = [
-      "Authorization": apiKey,
-      "Accept": "application/json"
-    ]
-    
-    sessionManager.request(apiURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+      if let authorizationHeader = Request.authorizationHeader(user: user, password: password) {
+        headers[authorizationHeader.key] = authorizationHeader.value
+      }
+  
+      self.manager
+        .request(apiURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+//        .authenticate(user: user, password: password)
+        .responseJSON { response in
+        debugPrint(response)
+      }
+    print("ending")
+  }
+}
+
+struct PlacesLoader {
+//  let apiURL = "https://maps.googleapis.com/maps/api/place/"
+  let apiURL = "https://sandbox.api.visa.com/merchantlocator/v1/locator"
+  let apiKey = "UjhQRVo1WlYwRDFFUVpXNVhTQUYyMTVFSTh5VzRZZ1Fzc0V0Q25JdW84QWJ3UHdMNDptdENOOEdZVGRFa2U4SnIzZDJwMFpCOU1lVTNqN2h4OHEz"
+  var sessionMgr: SessionManager?
+  
+  func loadPOIS(location: CLLocation, radius: Int = 30, handler: @escaping (NSDictionary?, NSError?) -> Void) {
+//    print("Load pois")
+//    let latitude = location.coordinate.latitude
+//    let longitude = location.coordinate.longitude
+//
+//    let parameters: Parameters = [
+//      "searchOptions": [
+//        "matchScore": "true",
+//        "matchIndicators": "true",
+//        "maxRecords": "5"
+//      ],
+//      "responseAttrList": [
+//        "GNLOCATOR"
+//      ],
+//      "searchAttrList": [
+//        "distanceUnit": "M",
+//        "distance": "2",
+//        "longitude": longitude,
+//        "latitude": latitude,
+//        "merchantCountryCode": "840",
+//        "merchantName": "Starbucks"
+//      ],
+//      "header": [
+//        "startIndex": "0",
+//        "requestMessageId": "Request_001",
+//        "messageDateTime": "2017-10-21T23:15:52.903"
+//      ]
+//    ]
+//
+//    let headers: HTTPHeaders = [
+//      "Authorization": apiKey,
+//      "Accept": "application/json"
+//    ]
+//
+//    sessionMgr = NetworkManager().manager
+//
+//    sessionMgr.request(apiURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+//      debugPrint(response)
+//    }
   }
   
   func loadDetailInformation(forPlace: Place, handler: @escaping (NSDictionary?, NSError?) -> Void) {
