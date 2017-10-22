@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/JiaWern/Desktop/My Projects/Hackathons/money2020/Places/VisaCheckoutSDK">
+   </FileRef>
+   <FileRef
       location = "group:Places.xcodeproj">
    </FileRef>
    <FileRef
