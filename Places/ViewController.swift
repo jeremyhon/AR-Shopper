@@ -84,6 +84,7 @@ class ViewController: UIViewController {
   }
   
   @IBAction func showARController(_ sender: Any) {
+    print("second screen", secondScreen)
     print("Creating arViewController")
     self.arViewController = ARViewController()
     self.arViewController.dataSource = self
@@ -141,7 +142,32 @@ class ViewController: UIViewController {
     self.arViewController1.addGestureRecognizer(gesture: swipeDown)
     
     print("Presenting arViewController")
-    self.present(self.arViewController, animated: true, completion: nil)
+    if self.secondScreen {
+      self.present(self.arViewController1, animated: true, completion: nil)
+    } else {
+      self.present(self.arViewController, animated: true, completion: nil)
+    }
+    
+    
+    let checkoutLabel = UILabel(frame: CGRect(x: 10, y: self.view.bounds.size.height - 30, width: 80, height: 21))
+    checkoutLabel.textAlignment = .left
+    checkoutLabel.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+    checkoutLabel.textColor = UIColor.white
+    checkoutLabel.text = "Checkout"
+    checkoutLabel.isUserInteractionEnabled = true
+    let tapGR = UITapGestureRecognizer(target: self, action: #selector(goCheckout))
+    checkoutLabel.addGestureRecognizer(tapGR)
+    self.arViewController1.view.addSubview(checkoutLabel)
+    
+    let scanLabel = UILabel(frame: CGRect(x: self.view.bounds.size.width - 60, y: self.view.bounds.size.height - 30, width: 60, height: 21))
+    scanLabel.textAlignment = .right
+    scanLabel.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+    scanLabel.textColor = UIColor.white
+    scanLabel.text = "Scan"
+    scanLabel.isUserInteractionEnabled = true
+    let scantapGR = UITapGestureRecognizer(target: self, action: #selector(goScan))
+    scanLabel.addGestureRecognizer(scantapGR)
+    self.arViewController1.view.addSubview(scanLabel)
   }
   
   func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
@@ -184,6 +210,31 @@ class ViewController: UIViewController {
       arViewController.present(alert, animated: true, completion: nil)
     }
     
+  }
+  
+  func goToSecondScreen() {
+    self.secondScreen = true
+  }
+  
+  func goScan() {
+    print("scanning")
+    self.arViewController1.presentingViewController?.dismiss(animated: true, completion: nil)
+    
+    let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScannerViewController") as! QRScannerViewController
+    vc.setOrigin(vc: self)
+    self.present(vc, animated: true)
+  }
+  
+  func goCheckout() {
+    print("checkout")
+    self.arViewController1.presentingViewController?.dismiss(animated: true, completion: nil)
+    
+    let vc = self.storyboard?.instantiateViewController(withIdentifier: "CheckoutViewController") as! CheckoutViewController
+    self.present(vc, animated: true)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    print(segue.identifier!)
   }
 }
 

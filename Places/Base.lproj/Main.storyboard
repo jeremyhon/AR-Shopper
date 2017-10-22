@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6gl-pt-Yrl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -16,7 +16,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -39,6 +39,10 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0a6-vY-b1X" secondAttribute="bottom" constant="8" symbolic="YES" id="hUs-NU-qwn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="6gl-pt-Yrl" kind="showDetail" identifier="scanSegue" id="JQi-xY-vjH"/>
+                        <segue destination="aYl-oN-Xga" kind="showDetail" identifier="checkoutSegue" id="KX1-Bn-iKN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,7 +51,7 @@
         <!--Checkout View Controller-->
         <scene sceneID="pvM-5p-JdX">
             <objects>
-                <viewController id="aYl-oN-Xga" customClass="CheckoutViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CheckoutViewController" id="aYl-oN-Xga" customClass="CheckoutViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Bg-nv-SkF"/>
                         <viewControllerLayoutGuide type="bottom" id="F1I-bg-7bq"/>
@@ -60,7 +64,7 @@
                                 <rect key="frame" x="16" y="20" width="343" height="502"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZG-Z9-Too" customClass="VisaCheckoutButton" customModule="Places" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZG-Z9-Too" customClass="VisaCheckoutButton" customModule="Places" customModuleProvider="target">
                                 <rect key="frame" x="80" y="565" width="215" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="mobile_visa_checkout_unrecognized.png"/>
@@ -79,7 +83,7 @@
         <!--Scanner View Controller-->
         <scene sceneID="8YK-Pa-yKi">
             <objects>
-                <viewController id="6gl-pt-Yrl" customClass="QRScannerViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScannerViewController" id="6gl-pt-Yrl" customClass="QRScannerViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dN4-dW-RCK"/>
                         <viewControllerLayoutGuide type="bottom" id="9pp-nU-2Dt"/>

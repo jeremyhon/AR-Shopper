@@ -266,8 +266,8 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
             // Close button
             if self.uiOptions.closeButtonEnabled { self.addCloseButton() }
           
-            self.addCheckoutButton()
-            
+//            self.addCheckoutButton()
+          
             // Debug
             if self.uiOptions.debugEnabled { self.addDebugUi() }
             

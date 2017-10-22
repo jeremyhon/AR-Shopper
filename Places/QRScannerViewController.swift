@@ -13,10 +13,16 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
   
   @IBOutlet weak var messageLabel: UILabel!
   
-  
+  var origin:ViewController?
   var captureSession:AVCaptureSession?
   var videoPreviewLayer:AVCaptureVideoPreviewLayer?
   var qrCodeFrameView:UIView?
+  
+  func setOrigin(vc:ViewController) {
+    self.origin = vc
+    print("origin set")
+    print("second screen", vc.secondScreen)
+  }
   
   // Added to support different barcodes
   let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
@@ -87,7 +93,10 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
   }
   
   func update() {
-    self.performSegue(withIdentifier: "mainSegue", sender: nil)
+//    self.performSegue(withIdentifier: "mainSegue", sender: nil)
+    let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! ViewController
+    vc.goToSecondScreen()
+    self.present(vc, animated: true)
   }
   
   override func didReceiveMemoryWarning() {
