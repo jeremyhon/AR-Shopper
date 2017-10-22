@@ -168,13 +168,12 @@ extension ViewController: CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     
     if locations.count > 0 {
-      //      let location = locations.last!
-      let location = CLLocation(latitude: 36.12256531, longitude: -115.16667458)
-      //      manager.stopUpdatingLocation()
+      let location = locations.last!
+      //      let location = CLLocation(latitude: 36.12256531, longitude: -115.16667458)
       
       if location.horizontalAccuracy < 100 {
         manager.stopUpdatingLocation()
-        //      print(location)
+        print(location)
         let span = MKCoordinateSpan(latitudeDelta: 0.010, longitudeDelta: 0.010)
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
         
@@ -197,15 +196,16 @@ extension ViewController: CLLocationManagerDelegate {
                 let place = Place(location: location, reference: reference, name: name, address: address)
                 if count < 3 {
                   self.places.append(place)
-                  let annotation = PlaceAnnotation(location: place.location!.coordinate, title: place.placeName)
-                  DispatchQueue.main.async {
-                    self.mapView.addAnnotation(annotation)
-                  }
+                  
                 }
                 else {
                   self.places1.append(place)
                 }
                 count += 1
+                let annotation = PlaceAnnotation(location: place.location!.coordinate, title: place.placeName)
+                DispatchQueue.main.async {
+                  self.mapView.addAnnotation(annotation)
+                }
               }
             }
           }
@@ -220,6 +220,13 @@ extension ViewController: ARDataSource {
     let annotationView = AnnotationView()
     annotationView.annotation = viewForAnnotation
     annotationView.delegate = self
+    if let annotation = viewForAnnotation as? Place {
+      print(annotation.address)
+      if annotation.address == "nil" {
+        annotationView.frame = CGRect(x: 0, y: 0, width: 150, height: 200)
+        return annotationView
+      }
+    }
     annotationView.frame = CGRect(x: 0, y: 0, width: 300, height: 100)
     
     return annotationView
@@ -231,18 +238,10 @@ extension ViewController: AnnotationViewDelegate {
     print("touched")
     if let annotation = annotationView.annotation as? Place {
       networkMgr.loadDetailInformation(forPlace: annotation) { resultDict, error in
-        //      let placesLoader = PlacesLoader()
-        //      placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
         annotation.offers = resultDict?.object(forKey: "offers") as? String
         print("annotation offer: \(annotation.offers ?? "no offers")")
         self.showInfoView(forPlace: annotation)
         
-        //        if let infoDict = resultDict?.object(forKey: "result") as? NSDictionary {
-        //          annotation.phoneNumber = infoDict.object(forKey: "offers") as? String
-        ////          annotation.website = infoDict.object(forKey: "website") as? String
-        //
-        //          self.showInfoView(forPlace: annotation)
-        //        }
       }
       
     }

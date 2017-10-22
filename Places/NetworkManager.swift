@@ -53,104 +53,144 @@ class NetworkManager {
   }
   
   func getStores(location: CLLocation, radius: Int = 30, handler: @escaping (NSDictionary?, NSError?) -> Void) {
-    print("Load pois")
     let latitude = location.coordinate.latitude
     let longitude = location.coordinate.longitude
     print("lat", latitude, ", lng", longitude)
     
-    let parameters: Parameters = [
-      "searchOptions": [
-        "matchScore": "true",
-        "matchIndicators": "true",
-        "maxRecords": "5",
-        "wildcard": "*"
-      ],
-      "responseAttrList": [
-        "GNLOCATOR"
-      ],
-      "searchAttrList": [
-        "distanceUnit": "M",
-        "distance": "2",
-        "longitude": longitude,
-        "latitude": latitude,
-        "merchantCountryCode": "840",
-        "merchantName": "*"
-      ],
-      "header": [
-        "startIndex": "0",
-        "requestMessageId": "Request_001",
-        "messageDateTime": "2017-10-21T23:15:52.903"
+    let dict: NSDictionary = [
+      "results": [
+        [
+          "name": "Ralph Lauren",
+          "reference": "ralph.png",
+          "address": "123 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
+          "lat":latitude+0.0003,
+          "lng":longitude
+        ],[
+          "name": "Kate Spade",
+          "reference": "kate.png",
+          "address": "124 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
+          "lat":latitude+0.0006,
+          "lng":longitude+0.0003
+        ],[
+          "name": "COACH",
+          "reference": "coach.png",
+          "address": "125 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
+          "lat":latitude+0.0009,
+          "lng":longitude-0.0003
+        ],[
+          "name": "Shirt",
+          "reference": "shirt.png",
+          "address": "nil",
+          "lat":latitude+0.000212,
+          "lng":longitude-0.000212
+        ],[
+          "name": "Polo",
+          "reference": "polo.png",
+          "address": "nil",
+          "lat":latitude+0.00027,
+          "lng":longitude+0.00013
+        ],[
+          "name": "Jeans",
+          "reference": "jeans.png",
+          "address": "nil",
+          "lat":latitude+0.00027,
+          "lng":longitude-0.00013
+        ],[
+          "name": "Sweater",
+          "reference": "sweater.png",
+          "address": "nil",
+          "lat":latitude+0.000212,
+          "lng":longitude+0.000212
+        ]
       ]
     ]
+    handler(dict, nil)
     
-    var headers: HTTPHeaders = [
-      "Accept": "application/json"
-    ]
-    
-    if let authorizationHeader = Request.authorizationHeader(user: user, password: password) {
-      headers[authorizationHeader.key] = authorizationHeader.value
-    }
-    
-    self.manager
-      .request(apiURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-      .responseJSON { response in
-          let dict: NSDictionary = [
-            "results": [
-              [
-                "name": "Ralph Lauren",
-                "reference": "ralph.png",
-                "address": "123 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
-                "lat":latitude+0.0003,
-                "lng":longitude
-              ],[
-                "name": "Kate Spade",
-                "reference": "kate.png",
-                "address": "124 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
-                "lat":latitude+0.0006,
-                "lng":longitude+0.0003
-              ],[
-                "name": "COACH",
-                "reference": "coach.png",
-                "address": "125 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
-                "lat":latitude+0.0009,
-                "lng":longitude-0.0003
-              ],[
-                "name": "Shirt",
-                "reference": "shirt.png",
-                "address": "nil",
+//    let parameters: Parameters = [
+//      "searchOptions": [
+//        "matchScore": "true",
+//        "matchIndicators": "true",
+//        "maxRecords": "5",
+//        "wildcard": "*"
+//      ],
+//      "responseAttrList": [
+//        "GNLOCATOR"
+//      ],
+//      "searchAttrList": [
+//        "distanceUnit": "M",
+//        "distance": "2",
+//        "longitude": longitude,
+//        "latitude": latitude,
+//        "merchantCountryCode": "840",
+//        "merchantName": "*"
+//      ],
+//      "header": [
+//        "startIndex": "0",
+//        "requestMessageId": "Request_001",
+//        "messageDateTime": "2017-10-21T23:15:52.903"
+//      ]
+//    ]
+//
+//    var headers: HTTPHeaders = [
+//      "Accept": "application/json"
+//    ]
+//
+//    if let authorizationHeader = Request.authorizationHeader(user: user, password: password) {
+//      headers[authorizationHeader.key] = authorizationHeader.value
+//    }
+//
+//    self.manager
+//      .request(apiURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+//      .responseJSON { response in
+//          let dict: NSDictionary = [
+//            "results": [
+//              [
+//                "name": "Ralph Lauren",
+//                "reference": "ralph.png",
+//                "address": "123 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
 //                "lat":latitude+0.0003,
 //                "lng":longitude
-                "lat":latitude+0.00031,
-                "lng":longitude+0.0001
-              ],[
-                "name": "Polo",
-                "reference": "polo.png",
-                "address": "nil",
-//                "lat":latitude+0.0003,
-//                "lng":longitude
-                "lat":latitude+0.00033,
-                "lng":longitude+0.00008
-              ],[
-                "name": "Jeans",
-                "reference": "jeans.png",
-                "address": "nil",
-//                "lat":latitude+0.0003,
-//                "lng":longitude
-                "lat":latitude+0.00035,
-                "lng":longitude-0.00005
-              ],[
-                "name": "Sweater",
-                "reference": "sweater.png",
-                "address": "nil",
-//                "lat":latitude+0.0003,
-//                "lng":longitude
-                "lat":latitude+0.00037,
-                "lng":longitude
-              ]
-            ]
-          ]
-          handler(dict, nil)
-    }
+//              ],[
+//                "name": "Kate Spade",
+//                "reference": "kate.png",
+//                "address": "124 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
+//                "lat":latitude+0.0006,
+//                "lng":longitude+0.0003
+//              ],[
+//                "name": "COACH",
+//                "reference": "coach.png",
+//                "address": "125 The Venetian, 3355 S Las Vegas Blvd, Las Vegas",
+//                "lat":latitude+0.0009,
+//                "lng":longitude-0.0003
+//              ],[
+//                "name": "Shirt",
+//                "reference": "shirt.png",
+//                "address": "nil",
+//                "lat":latitude+0.00031,
+//                "lng":longitude-0.0001
+//              ],[
+//                "name": "Polo",
+//                "reference": "polo.png",
+//                "address": "nil",
+//                "lat":latitude+0.00033,
+//                "lng":longitude+0.0001
+//              ],[
+//                "name": "Jeans",
+//                "reference": "jeans.png",
+//                "address": "nil",
+//                "lat":latitude+0.00031,
+//                "lng":longitude-0.00005
+//              ],[
+//                "name": "Sweater",
+//                "reference": "sweater.png",
+//                "address": "nil",
+//                "lat":latitude+0.00033,
+//                "lng":longitude+0.00003
+//              ]
+//            ]
+//          ]
+//          handler(dict, nil)
+//    }
   }
   
   func loadDetailInformation(forPlace: Place, handler: @escaping (NSDictionary?, NSError?) -> Void) {

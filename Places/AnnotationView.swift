@@ -32,6 +32,7 @@ class AnnotationView: ARAnnotationView {
   var distanceLabel: UILabel?
   var imageLabel: UILabel?
   var delegate: AnnotationViewDelegate?
+  var isProduct: Bool?
   
   override func didMoveToSuperview() {
     super.didMoveToSuperview()
@@ -65,6 +66,11 @@ class AnnotationView: ARAnnotationView {
 //      distanceLabel?.text = String(format: "%.2f km", annotation.distanceFromUser / 1000)
       imageLabel?.text = ""
       imageLabel?.addImage(imageName: annotation.reference)
+      
+      if annotation.address == "nil" {
+        imageLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+        
+      }
 //      imageLabel?.addImage(imageName: "icons8-Home-50.png")
     }
     
@@ -79,6 +85,11 @@ class AnnotationView: ARAnnotationView {
 //    titleLabel?.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
 //    distanceLabel?.frame = CGRect(x: 10, y: 30, width: self.frame.size.width, height: 20)
     imageLabel?.frame = CGRect(x: 0, y: 0, width: 500, height: 200)
+    if let annotation = annotation as? Place {
+      if annotation.address == "nil" {
+        imageLabel?.frame = CGRect(x: 0, y: 0, width: 150, height: 200)
+      }
+    }
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
