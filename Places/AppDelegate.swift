@@ -21,6 +21,7 @@
  */
 
 import UIKit
+import VisaCheckoutSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        VisaCheckoutSDK.configure(
+          environment: .sandbox, apiKey: "VL8R6T2GQ9V282A573M421j-6ERXBmw0cfFjOSqIcibWSJbGQ"
+      )
         return true
     }
 

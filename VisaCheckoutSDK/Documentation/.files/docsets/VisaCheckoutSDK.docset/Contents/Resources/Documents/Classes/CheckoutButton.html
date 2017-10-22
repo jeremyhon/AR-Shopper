@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CheckoutButton Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/CheckoutButton" class="dashAnchor"></a>
+    <a title="CheckoutButton Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">VisaCheckoutSDK Docs</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">VisaCheckoutSDK Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CheckoutButton Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../installation.html">Installation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../usage.html">Usage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Configure.html">Configure</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/VisaCheckoutSDK.html">VisaCheckoutSDK</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Profile.html">Profile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CardBrand.html">CardBrand</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CheckoutConfigStatus.html">CheckoutConfigStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Country.html">Country</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Environment.html">Environment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReviewAction.html">ReviewAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DataLevel.html">DataLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Checkout.html">Checkout</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CheckoutButton.html">CheckoutButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckoutResult.html">CheckoutResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencyAmount.html">CurrencyAmount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PurchaseInfo.html">PurchaseInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CheckoutButtonStyle.html">CheckoutButtonStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CheckoutResultStatus.html">CheckoutResultStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Currency.html">Currency</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CheckoutButton</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">CheckoutButton</span><span class="p">:</span> <span class="kt">UIControl</span></code></pre>
+
+                </div>
+              </div>
+            <p>This is the main point of interaction for your customers. The user
+will tap this button in order to initiate the Visa Checkout SDK&rsquo;s 
+user interface. A CheckoutButton can have a <code><a href="../Enums/CheckoutButtonStyle.html">CheckoutButtonStyle</a></code>
+for different visual rendering options. </p>
+
+<p>You can use the <code>onCheckout(total:currency:completion:)</code> methods to provide information that
+is used when the button is tapped by the user.</p>
+
+<p>Alternatively, you may add a target-action mechanism provided by <code>UIControl</code>
+instances. You may then call the <code>VisaCheckoutSDK.checkout()</code> methods
+directly to manually launch the Visa Checkout SDK&rsquo;s user interface.</p>
+
+<p>CheckoutButton can only have 2 heights - 34 or 47 points. Setting the height &lt; 34 will 
+result in a height of 34 points. Setting the height &gt; 47 will result in a height of 47. 
+If the height is set somewhere between 34-40, the height will snap down to 34.
+If the height is set somewhere between 41-47, the height will snap up to 47.
+CheckoutButton width can be anywhere from 154 to 425. Widths &lt; 154 will snap to 154 and
+widths &gt; 425 will snap to 425. However, unlike height, the width can be set anywhere 
+between 154-425 and that width will be honored.</p>
+
+<hr>
+
+<p>Example setting the purchase information to an instance of CheckoutButton*</p>
+<pre class="highlight swift"><code><span class="n">checkoutButton</span><span class="o">.</span><span class="nf">onCheckout</span><span class="p">(</span><span class="nv">total</span><span class="p">:</span> <span class="mf">22.09</span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="o">.</span><span class="n">usd</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+   <span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">statusCode</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutButton(py)enableAnimation"></a>
+                    <a name="//apple_ref/swift/Property/enableAnimation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutButton(py)enableAnimation">enableAnimation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>enableAnimation</code> is used to turn on or off the animation on the button.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">enableAnimation</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutButton(cpy)miniButtonImage"></a>
+                    <a name="//apple_ref/swift/Variable/miniButtonImage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutButton(cpy)miniButtonImage">miniButtonImage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><img src="../img/mini.png" alt="miniButtonImage"></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">miniButtonImage</span><span class="p">:</span> <span class="kt">UIImage</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutButton(im)onCheckoutWithTotal:currency:completion:"></a>
+                    <a name="//apple_ref/swift/Method/onCheckout(total:currency:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutButton(im)onCheckoutWithTotal:currency:completion:">onCheckout(total:currency:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A convenience method to set the most basic information needed to complete a transaction.
+The information will be used once the button is tapped by the user. This method may be
+called multiple times, as needed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">onCheckout</span><span class="p">(</span><span class="nv">total</span><span class="p">:</span> <span class="kt"><a href="../Classes/CurrencyAmount.html">CurrencyAmount</a></span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="kt"><a href="../Enums/Currency.html">Currency</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">VisaCheckoutResultHandler</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutButton(im)onCheckoutWithPurchaseInfo:completion:"></a>
+                    <a name="//apple_ref/swift/Method/onCheckout(purchaseInfo:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutButton(im)onCheckoutWithPurchaseInfo:completion:">onCheckout(purchaseInfo:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A method to set the detailed <code><a href="../Classes/PurchaseInfo.html">PurchaseInfo</a></code> used to complete a transaction.
+The information will be used once the button is tapped by the user. This method may be
+called multiple times, as needed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">onCheckout</span><span class="p">(</span><span class="nv">purchaseInfo</span><span class="p">:</span> <span class="kt"><a href="../Classes/PurchaseInfo.html">PurchaseInfo</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">VisaCheckoutResultHandler</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutButton(py)standardStyle"></a>
+                    <a name="//apple_ref/swift/Property/standardStyle" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutButton(py)standardStyle">standardStyle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convenience property for Interface Builder to set the value of
+<code><a href="../Classes/CheckoutButton.html#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutButton(py)style">style</a></code> to <code><a href="../Enums/CheckoutButtonStyle.html#/c:@M@VisaCheckoutSDK@E@VisaCheckoutButtonStyle@VisaCheckoutButtonStyleStandard">CheckoutButtonStyle.standard</a></code>. Default value is <code>true</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">standardStyle</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutButton(py)style"></a>
+                    <a name="//apple_ref/swift/Property/style" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutButton(py)style">style</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code><a href="../Enums/CheckoutButtonStyle.html">CheckoutButtonStyle</a></code> to use for rendering. This is used to
+contrast with lighter or darker background superviews.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">style</span><span class="p">:</span> <span class="kt"><a href="../Enums/CheckoutButtonStyle.html">CheckoutButtonStyle</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">standard</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Visa, Inc.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

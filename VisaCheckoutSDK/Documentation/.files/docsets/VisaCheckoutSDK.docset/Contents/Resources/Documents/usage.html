@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Usage  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="Usage  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">VisaCheckoutSDK Docs</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">VisaCheckoutSDK Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Usage  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="installation.html">Installation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="usage.html">Usage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Configure.html">Configure</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/VisaCheckoutSDK.html">VisaCheckoutSDK</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Profile.html">Profile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CardBrand.html">CardBrand</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CheckoutConfigStatus.html">CheckoutConfigStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Country.html">Country</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Environment.html">Environment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ReviewAction.html">ReviewAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/DataLevel.html">DataLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Checkout.html">Checkout</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/CheckoutButton.html">CheckoutButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CheckoutResult.html">CheckoutResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CurrencyAmount.html">CurrencyAmount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PurchaseInfo.html">PurchaseInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CheckoutButtonStyle.html">CheckoutButtonStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CheckoutResultStatus.html">CheckoutResultStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Currency.html">Currency</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='strong-span-style-color-122d98-usage-span-strong' class='heading'><strong><span style="color:#122d98">Usage</span></strong></h1>
+<h2 id='span-style-color-122d98-configure-visa-checkout-sdk-span' class='heading'><span style="color:#122d98">Configure Visa Checkout SDK</span></h2>
+
+<p>Configure the Visa Checkout SDK by calling one of the <code>VisaCheckoutSDK.configure()</code> methods.
+The various methods are found on the <code>VisaCheckoutSDK</code> class.</p>
+
+<p>It is recommended to configure the Visa Checkout SDK as early as possible, such as in the
+<code>didFinishLaunchingWithOptions</code> method. This allows the SDK time to setup so it
+can be ready for the user. It is required to have an internet connection for
+the SDK to configure properly.</p>
+
+<p>You may call <code>configure()</code> multiple times.</p>
+
+<p><em>The following code snippet configures the Visa Checkout SDK. Be sure
+to <code>import VisaCheckoutSDK</code>.</em></p>
+
+<p><strong>Swift:</strong></p>
+<pre class="highlight swift"><code><span class="kt">VisaCheckoutSDK</span><span class="o">.</span><span class="nf">configure</span><span class="p">(</span><span class="nv">environment</span><span class="p">:</span> <span class="o">.</span><span class="n">sandbox</span><span class="p">,</span>
+                          <span class="nv">apiKey</span><span class="p">:</span> <span class="s">"&lt;#Your API Key goes here#&gt;"</span><span class="p">)</span>
+</code></pre>
+
+<p><strong>Objective-C:</strong></p>
+<pre class="highlight smalltalk"><code><span class="p">[</span><span class="nc">VisaCheckoutSDK</span> <span class="nf">configureWithEnvironment:</span><span class="nc">VisaEnvironmentSandbox</span>
+                                       <span class="nf">apiKey:</span><span class="err">@</span><span class="c">"&lt;#Your API Key goes here#&gt;"</span>
+                                  <span class="nf">profileName:</span><span class="nv">nil</span>
+                                       <span class="nf">result:</span><span class="nv">nil</span><span class="p">];</span>
+</code></pre>
+
+<p><img src="img/configure.jpg" alt="Configuring the Visa Checkout SDK"></p>
+
+<p><em>The following code snippet configures the Visa Checkout SDK using the more
+customizable <code>Profile</code> class.</em></p>
+
+<p><strong>Swift:</strong></p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">profile</span> <span class="o">=</span> <span class="kt">Profile</span><span class="p">(</span><span class="nv">environment</span><span class="p">:</span> <span class="o">.</span><span class="n">sandbox</span><span class="p">,</span>
+                      <span class="nv">apiKey</span><span class="p">:</span> <span class="s">"&lt;#Your API Key goes here#&gt;"</span><span class="p">)</span>
+<span class="n">profile</span><span class="o">.</span><span class="n">datalevel</span> <span class="o">=</span> <span class="o">.</span><span class="n">full</span>
+<span class="kt">VisaCheckoutSDK</span><span class="o">.</span><span class="nf">configure</span><span class="p">(</span><span class="nv">profile</span><span class="p">:</span> <span class="n">profile</span><span class="p">)</span>
+</code></pre>
+
+<p><strong>Objective-C:</strong></p>
+<pre class="highlight smalltalk"><code><span class="nc">VisaProfile</span><span class="nf">*</span> <span class="nv">profile</span> <span class="nf">=</span> <span class="p">[[</span><span class="nc">VisaProfile</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithEnvironment:</span><span class="nc">VisaEnvironmentSandbox</span>
+                                                             <span class="nf">apiKey:</span><span class="err">@</span><span class="c">"&lt;#Your API Key goes here#&gt;"</span>
+                                                        <span class="nf">profileName:</span><span class="nv">nil</span><span class="p">];</span>
+<span class="nf">profile</span><span class="p">.</span><span class="nv">datalevel</span> <span class="nf">=</span> <span class="nc">VisaDataLevelFull</span><span class="p">;</span>
+<span class="p">[</span><span class="nc">VisaCheckoutSDK</span> <span class="nf">configureWithProfile:</span><span class="nv">profile</span> <span class="nf">result:</span><span class="bp">nil</span><span class="p">];</span>
+</code></pre>
+
+<p><br/></p>
+<h2 id='span-style-color-122d98-setup-code-visacheckoutbutton-code-span' class='heading'><span style="color:#122d98">Setup <code>VisaCheckoutButton</code></span></h2>
+
+<p>There are multiple ways to work with the <code>VisaCheckoutButton</code>. VisaCheckoutButton is
+a subclass of <code>UIControl</code> so it may be used as any other UIView and supports the
+target-action pattern.</p>
+
+<p>The recommended way to use the VisaCheckoutButton is to create an instance and
+prepare the button with purchase information using the <code>onCheckout(total:currency:completion:)</code>
+or the <code>onCheckout(purchaseInfo:completion:)</code> method. These methods will provide
+the button with the needed purchase information when the button is tapped by the
+user. You may call these methods multiple times.</p>
+
+<p><em>The following code snippet sets the purchase information for the button.</em></p>
+
+<p><strong>Swift:</strong></p>
+<pre class="highlight swift"><code><span class="n">checkoutButton</span><span class="o">.</span><span class="nf">onCheckout</span><span class="p">(</span><span class="nv">total</span><span class="p">:</span> <span class="mf">22.09</span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="o">.</span><span class="n">usd</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">result</span><span class="o">.</span><span class="n">statusCode</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="o">.</span><span class="nv">success</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Encrypted key: </span><span class="se">\(</span><span class="n">result</span><span class="o">.</span><span class="n">encryptedKey</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Payment data: </span><span class="se">\(</span><span class="n">result</span><span class="o">.</span><span class="n">encryptedPaymentData</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+    <span class="k">case</span> <span class="o">.</span><span class="nv">userCancelled</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Payment cancelled by the user"</span><span class="p">)</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p><strong>Objective-C:</strong></p>
+<pre class="highlight smalltalk"><code><span class="nc">VisaCurrencyAmount</span><span class="nf">*</span> <span class="nv">amount</span> <span class="nf">=</span> <span class="p">[[</span><span class="nc">VisaCurrencyAmount</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithDouble:</span><span class="m">22.09</span><span class="p">];</span>
+<span class="p">[</span><span class="o">_</span><span class="nv">checkoutButton</span> <span class="nf">onCheckoutWithTotal:</span><span class="nv">amount</span> <span class="nf">currency:</span><span class="nc">VisaCurrencyUsd</span> <span class="nf">completion:</span><span class="o">^</span><span class="p">(</span><span class="nc">VisaCheckoutResult</span><span class="nf">*</span> <span class="nv">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">switch</span> <span class="p">(</span><span class="nv">result</span><span class="p">.</span><span class="nv">statusCode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">case</span> <span class="nf">VisaCheckoutResultStatusSuccess:</span>
+            <span class="nc">NSLog</span><span class="p">(</span><span class="err">@</span><span class="c">"Encrypted key: %@"</span><span class="err">,</span> <span class="nv">result</span><span class="p">.</span><span class="nv">encryptedKey</span><span class="p">);</span>
+            <span class="nf">NSLog</span><span class="p">(</span><span class="err">@</span><span class="c">"Payment data: %@"</span><span class="err">,</span> <span class="nv">result</span><span class="p">.</span><span class="nv">encryptedPaymentData</span><span class="p">);</span>
+            <span class="nf">break</span><span class="p">;</span>
+        <span class="nf">case</span> <span class="nf">VisaCheckoutResultStatusUserCancelled:</span>
+            <span class="nc">NSLog</span><span class="p">(</span><span class="err">@</span><span class="c">"Payment cancelled by the user"</span><span class="p">);</span>
+            <span class="nf">break</span><span class="p">;</span>
+        <span class="nf">default:</span>
+            <span class="nv">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}];</span>
+</code></pre>
+
+<p><img src="img/buttoncode.jpg" alt="Preparing the VisaCheckoutButton instance"></p>
+
+<p><em>The following code snippet sets the purchase information using the more
+customizable <code>PurchaseInfo</code> class.</em></p>
+
+<p><strong>Swift:</strong></p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">purchaseInfo</span> <span class="o">=</span> <span class="kt">PurchaseInfo</span><span class="p">(</span><span class="nv">total</span><span class="p">:</span> <span class="mf">22.09</span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="o">.</span><span class="n">usd</span><span class="p">)</span>
+<span class="n">purchaseInfo</span><span class="o">.</span><span class="n">reviewAction</span> <span class="o">=</span> <span class="o">.</span><span class="n">pay</span>
+
+<span class="n">checkoutButton</span><span class="o">.</span><span class="nf">onCheckout</span><span class="p">(</span><span class="nv">purchaseInfo</span><span class="p">:</span> <span class="n">purchaseInfo</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">result</span><span class="o">.</span><span class="n">statusCode</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="o">.</span><span class="nv">success</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Encrypted key: </span><span class="se">\(</span><span class="n">result</span><span class="o">.</span><span class="n">encryptedKey</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Payment data: </span><span class="se">\(</span><span class="n">result</span><span class="o">.</span><span class="n">encryptedPaymentData</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+    <span class="k">case</span> <span class="o">.</span><span class="nv">userCancelled</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Payment cancelled by the user"</span><span class="p">)</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p><strong>Objective-C:</strong></p>
+<pre class="highlight smalltalk"><code><span class="nc">VisaCurrencyAmount</span><span class="nf">*</span> <span class="nv">amount</span> <span class="nf">=</span> <span class="p">[[</span><span class="nc">VisaCurrencyAmount</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithDouble:</span><span class="m">22.09</span><span class="p">];</span>
+<span class="nf">VisaPurchaseInfo*</span> <span class="nv">purchaseInfo</span> <span class="nf">=</span> <span class="p">[[</span><span class="nc">VisaPurchaseInfo</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithTotal:</span><span class="nv">amount</span> <span class="nf">currency:</span><span class="nc">VisaCurrencyUsd</span><span class="p">];</span>
+<span class="nf">purchaseInfo</span><span class="p">.</span><span class="nv">reviewAction</span> <span class="nf">=</span> <span class="nc">VisaReviewActionPay</span><span class="p">;</span>
+<span class="p">[</span><span class="o">_</span><span class="nv">checkoutButton</span> <span class="nf">onCheckoutWithPurchaseInfo:</span><span class="nv">purchaseInfo</span> <span class="nf">completion:</span><span class="o">^</span><span class="p">(</span><span class="nc">VisaCheckoutResult</span><span class="nf">*</span> <span class="nv">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">switch</span> <span class="p">(</span><span class="nv">result</span><span class="p">.</span><span class="nv">statusCode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">case</span> <span class="nf">VisaCheckoutResultStatusSuccess:</span>
+            <span class="nc">NSLog</span><span class="p">(</span><span class="err">@</span><span class="c">"Encrypted key: %@"</span><span class="err">,</span> <span class="nv">result</span><span class="p">.</span><span class="nv">encryptedKey</span><span class="p">);</span>
+            <span class="nf">NSLog</span><span class="p">(</span><span class="err">@</span><span class="c">"Payment data: %@"</span><span class="err">,</span> <span class="nv">result</span><span class="p">.</span><span class="nv">encryptedPaymentData</span><span class="p">);</span>
+            <span class="nf">break</span><span class="p">;</span>
+        <span class="nf">case</span> <span class="nf">VisaCheckoutResultStatusUserCancelled:</span>
+            <span class="nc">NSLog</span><span class="p">(</span><span class="err">@</span><span class="c">"Payment cancelled by the user"</span><span class="p">);</span>
+            <span class="nf">break</span><span class="p">;</span>
+        <span class="nf">default:</span>
+            <span class="nv">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}];</span>
+</code></pre>
+
+<p><br/>
+If using Interface Builder to create your button, you only need to
+drag an instance of <code>UIView</code> to your View Controller, set the custom
+class to <code>VisaCheckoutButton</code>, then hook up your <code>IBOutlet</code>.</p>
+
+<p><em>An example creating the <code>VisaCheckoutButton</code> in Interface Builder as
+an <code>IBOutlet</code>:</em></p>
+
+<p><img src="img/ibclass.jpg" alt="Setting the Interface Builder view class"></p>
+
+<p><img src="img/outlet.jpg" alt="Connecting the IBOutlet"></p>
+
+<p><br/></p>
+
+<blockquote>
+<p><strong>Note:</strong> You also have the option to launch the Visa Checkout SDK directly. For
+instance, you may want to create a custom button using the
+<code>VisaCheckoutButton.miniButtonImage</code>. Then, your action handler will
+call the <code>VisaCheckoutSDK.checkout(total:currency:completion:)</code>
+or the <code>VisaCheckoutSDK.checkout(purchaseInfo:completion:)</code> method directly
+to immediately present the Visa Checkout SDK user interface.
+<br/><br/>The following code snippet shows how to launch the SDK manually:</p>
+</blockquote>
+
+<p><strong>Swift:</strong></p>
+<pre class="highlight swift"><code><span class="kt">VisaCheckoutSDK</span><span class="o">.</span><span class="nf">checkout</span><span class="p">(</span><span class="nv">total</span><span class="p">:</span> <span class="mf">22.09</span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="o">.</span><span class="n">usd</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">result</span><span class="o">.</span><span class="n">statusCode</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="o">.</span><span class="nv">success</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Encrypted key: </span><span class="se">\(</span><span class="n">result</span><span class="o">.</span><span class="n">encryptedKey</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Payment data: </span><span class="se">\(</span><span class="n">result</span><span class="o">.</span><span class="n">encryptedPaymentData</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+    <span class="k">case</span> <span class="o">.</span><span class="nv">userCancelled</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Payment cancelled by the user"</span><span class="p">)</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p><strong>Objective-C:</strong></p>
+<pre class="highlight smalltalk"><code><span class="nc">VisaCurrencyAmount</span><span class="nf">*</span> <span class="nv">amount</span> <span class="nf">=</span> <span class="p">[[</span><span class="nc">VisaCurrencyAmount</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithDouble:</span><span class="m">22.09</span><span class="p">];</span>
+<span class="p">[</span><span class="nc">VisaCheckoutSDK</span> <span class="nf">checkoutWithTotal:</span><span class="nv">amount</span> <span class="nf">currency:</span><span class="nc">VisaCurrencyUsd</span> <span class="nf">completion:</span><span class="o">^</span><span class="p">(</span><span class="nc">VisaCheckoutResult</span><span class="nf">*</span> <span class="nv">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">switch</span> <span class="p">(</span><span class="nv">result</span><span class="p">.</span><span class="nv">statusCode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">case</span> <span class="nf">VisaCheckoutResultStatusSuccess:</span>
+            <span class="nc">NSLog</span><span class="p">(</span><span class="err">@</span><span class="c">"Encrypted key: %@"</span><span class="err">,</span> <span class="nv">result</span><span class="p">.</span><span class="nv">encryptedKey</span><span class="p">);</span>
+            <span class="nf">NSLog</span><span class="p">(</span><span class="err">@</span><span class="c">"Payment data: %@"</span><span class="err">,</span> <span class="nv">result</span><span class="p">.</span><span class="nv">encryptedPaymentData</span><span class="p">);</span>
+            <span class="nf">break</span><span class="p">;</span>
+        <span class="nf">case</span> <span class="nf">VisaCheckoutResultStatusUserCancelled:</span>
+            <span class="nc">NSLog</span><span class="p">(</span><span class="err">@</span><span class="c">"Payment cancelled by the user"</span><span class="p">);</span>
+            <span class="nf">break</span><span class="p">;</span>
+        <span class="nf">default:</span>
+            <span class="nv">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}];</span>
+</code></pre>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>Visa, Inc.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

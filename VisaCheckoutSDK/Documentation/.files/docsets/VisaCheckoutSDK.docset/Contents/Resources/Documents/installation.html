@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Installation  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="Installation  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">VisaCheckoutSDK Docs</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">VisaCheckoutSDK Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Installation  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="installation.html">Installation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="usage.html">Usage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Configure.html">Configure</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/VisaCheckoutSDK.html">VisaCheckoutSDK</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Profile.html">Profile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CardBrand.html">CardBrand</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CheckoutConfigStatus.html">CheckoutConfigStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Country.html">Country</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Environment.html">Environment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ReviewAction.html">ReviewAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/DataLevel.html">DataLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Checkout.html">Checkout</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/CheckoutButton.html">CheckoutButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CheckoutResult.html">CheckoutResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CurrencyAmount.html">CurrencyAmount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PurchaseInfo.html">PurchaseInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CheckoutButtonStyle.html">CheckoutButtonStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CheckoutResultStatus.html">CheckoutResultStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Currency.html">Currency</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='strong-span-style-color-122d98-installation-span-strong' class='heading'><strong><span style="color:#122d98">Installation</span></strong></h1>
+<h2 id='span-style-color-122d98-cocoapods-span' class='heading'><span style="color:#122d98">CocoaPods</span></h2>
+
+<p>To integrate the Visa Checkout iOS SDK into your Xcode project using CocoaPods, specify it in your <code>Podfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'9.0'</span>
+<span class="n">use_frameworks!</span>
+
+<span class="n">target</span> <span class="s1">'&lt;Your Target Name&gt;'</span> <span class="k">do</span>
+    <span class="c1"># 5.5.0 is the Visa Checkout version, 8.3.3 is your Xcode version</span>
+    <span class="n">pod</span> <span class="s1">'VisaCheckoutSDK'</span><span class="p">,</span> <span class="s1">'5.5.0-8.3.3'</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>Then, run the following command:</p>
+<pre class="highlight shell"><code><span class="gp">$ </span>pod install
+</code></pre>
+
+<p><br/></p>
+
+<blockquote>
+<p><strong>IMPORTANT</strong>: Since the Visa Checkout iOS SDK is distributed as a Swift binary, and Swift does not yet have ABI stability, you need to make sure to specify the exact version of Xcode you are using when specifying the pod&rsquo;s version. The above <code>Podfile</code> example is someone using Xcode 8.3.3. We currently support Xcode versions 8.1.0, 8.2.1, and 8.3.3 via CocoaPods.</p>
+</blockquote>
+
+<p><br/></p>
+<h3 id='span-style-color-122d98-interface-builder-preview-optional-span' class='heading'><span style="color:#122d98">Interface Builder Preview (Optional)</span></h3>
+
+<p>If you will be adding the Visa Checkout button to your project via Interface Builder and would like to be able to preview the button in Interface Builder, you must also add the appropriate resource file to your <code>Compile Sources</code> build phase. Check the files in <code>Pods/VisaCheckoutSDK/Resources</code>. If your app is a Swift app, drag the <code>VisaCheckoutButton.swift</code> file to your <code>Compile Sources</code> build phase. If your app is an Objective-C app, drag the <code>VisaCheckoutButton+Designable.m</code> file to your <code>Compile Sources</code> build phase. You do NOT have to check <code>Copy items if needed</code>.</p>
+
+<p><br/></p>
+<h2 id='span-style-color-122d98-manual-span' class='heading'><span style="color:#122d98">Manual</span></h2>
+
+<p>This guide will walk you through a basic manual installation of the iOS Visa Checkout SDK.
+You can also view these steps in the <a href="https://www.youtube.com/embed/l0yAFnA010k">following video</a>.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/l0yAFnA010k" frameborder="0" allowfullscreen></iframe>
+
+<p><br/></p>
+<h3 id='span-style-color-122d98-embed-visacheckoutsdk-framework-span' class='heading'><span style="color:#122d98">Embed VisaCheckoutSDK.framework</span></h3>
+
+<p>Drag the VisaCheckoutSDK.framework file into the <strong>Embedded Binaries</strong> list in
+your project.</p>
+
+<p><img src="img/embed.jpg" alt="Embed VisaCheckoutSDK.framework"></p>
+
+<p><br/>
+Be sure to select ✅ <em>Copy items if needed</em> and <em>Create groups</em>.</p>
+
+<p><img src="img/embedcopy.jpg" alt="Copy items if needed for VisaCheckoutSDK.framework"></p>
+
+<p><br/>
+If your app is an Objective-C app, Make sure to set the <em>Always Embed Swift Standard Libraries</em> build setting to <strong>Yes</strong>.</p>
+
+<p><img src="img/embedswift.png" alt="Always embed swift libraries"></p>
+
+<p><br/></p>
+<h3 id='span-style-color-122d98-add-supporting-project-files-span' class='heading'><span style="color:#122d98">Add supporting project files</span></h3>
+
+<p>Drag the TrustDefender.framework and the VisaCheckoutButton file(s) (.swift if your app is a Swift app, or .h and .m if your app is an Objective-C app) into the project structure.</p>
+
+<p><img src="img/addfiles.jpg" alt="Add project files"></p>
+
+<p><br/>
+Be sure to select ✅ <em>Copy items if needed</em> and <em>Create groups</em>.</p>
+
+<p><img src="img/addfilescopy.jpg" alt="Copy items if needed for project files"></p>
+
+<p><br/>
+The TrustDefender library also needs another system framework. In <em>Linked Frameworks and Libraries</em>, click the <code>+</code> button and add <code>libz.tbd</code>.</p>
+
+<p><img src="img/libz.png" alt="Extra libraray"></p>
+
+<p><br/>
+Your project should now look similar to the following:</p>
+
+<p><img src="img/structure.jpg" alt="Project structure"></p>
+
+<p><br/></p>
+<h3 id='span-style-color-122d98-deployment-span' class='heading'><span style="color:#122d98">Deployment</span></h3>
+
+<p>The following is a necessary step due to a lack of functionality in Xcode.
+This script is required to run as a final script in your project&rsquo;s
+<em>Build Phases</em>. This script will need to be run when archiving your app
+for the App Store.</p>
+
+<p>For more information on what this does, <a href="http://stackoverflow.com/questions/30547283/submit-to-app-store-issues/30866648">click here.</a></p>
+
+<ol>
+<li>Go to your <em>Build Phases</em> tab for your target&rsquo;s settings.</li>
+<li>Click on the + icon and select <em>New Run Script Phase</em>. Make sure the script
+is run after <em>Embedded Frameworks</em>.</li>
+<li>Select the ✅<em>Run script only when installing</em> option.</li>
+<li>Paste the following code into the script code window:</li>
+</ol>
+<pre class="highlight shell"><code><span class="c"># This script removes simulator architectures from VisaCheckoutSDK.framework so it can be uploaded to the App Store.</span>
+<span class="c"># Make this a Build Phase run script after the 'Embed Frameworks' phase.</span>
+<span class="c"># 'Run script only when installing' should be checked.</span>
+<span class="c"># http://stackoverflow.com/questions/30547283/submit-to-app-store-issues/30866648</span>
+
+<span class="nv">APP_PATH</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">TARGET_BUILD_DIR</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">WRAPPER_NAME</span><span class="k">}</span><span class="s2">"</span>
+
+<span class="nv">FRAMEWORK_EXECUTABLE_NAME</span><span class="o">=</span>VisaCheckoutSDK
+find <span class="s2">"</span><span class="nv">$APP_PATH</span><span class="s2">"</span> -name <span class="s2">"</span><span class="k">${</span><span class="nv">FRAMEWORK_EXECUTABLE_NAME</span><span class="k">}</span><span class="s2">.framework"</span> -type d | <span class="k">while </span><span class="nb">read</span> -r FRAMEWORK
+<span class="k">do
+
+</span><span class="nv">FRAMEWORK_EXECUTABLE_PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$FRAMEWORK</span><span class="s2">/</span><span class="nv">$FRAMEWORK_EXECUTABLE_NAME</span><span class="s2">"</span>
+
+<span class="nv">EXTRACTED_ARCHS</span><span class="o">=()</span>
+
+<span class="k">for </span>ARCH <span class="k">in</span> <span class="nv">$ARCHS</span>
+<span class="k">do
+</span>lipo -extract <span class="s2">"</span><span class="nv">$ARCH</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">"</span> -o <span class="s2">"</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">-</span><span class="nv">$ARCH</span><span class="s2">"</span>
+EXTRACTED_ARCHS+<span class="o">=(</span><span class="s2">"</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">-</span><span class="nv">$ARCH</span><span class="s2">"</span><span class="o">)</span>
+<span class="k">done
+
+</span>lipo -o <span class="s2">"</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">-merged"</span> -create <span class="s2">"</span><span class="k">${</span><span class="nv">EXTRACTED_ARCHS</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span>
+rm <span class="s2">"</span><span class="k">${</span><span class="nv">EXTRACTED_ARCHS</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span>
+
+rm <span class="s2">"</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">"</span>
+mv <span class="s2">"</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">-merged"</span> <span class="s2">"</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">"</span>
+<span class="k">done</span>
+</code></pre>
+
+<p><img src="img/buildscript.jpg" alt="Creating the deployment Build Phase script"></p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>Visa, Inc.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

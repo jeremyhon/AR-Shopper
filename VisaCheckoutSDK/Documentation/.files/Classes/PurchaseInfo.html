@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PurchaseInfo Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/PurchaseInfo" class="dashAnchor"></a>
+    <a title="PurchaseInfo Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">VisaCheckoutSDK Docs</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">VisaCheckoutSDK Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        PurchaseInfo Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../installation.html">Installation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../usage.html">Usage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Configure.html">Configure</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/VisaCheckoutSDK.html">VisaCheckoutSDK</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Profile.html">Profile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CardBrand.html">CardBrand</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CheckoutConfigStatus.html">CheckoutConfigStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Country.html">Country</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Environment.html">Environment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReviewAction.html">ReviewAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DataLevel.html">DataLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Checkout.html">Checkout</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CheckoutButton.html">CheckoutButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckoutResult.html">CheckoutResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencyAmount.html">CurrencyAmount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PurchaseInfo.html">PurchaseInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CheckoutButtonStyle.html">CheckoutButtonStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CheckoutResultStatus.html">CheckoutResultStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Currency.html">Currency</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>PurchaseInfo</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">PurchaseInfo</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>PurchaseInfo</code> class is used for you to send the Visa Checkout SDK the
+detailed information regarding your customers&rsquo; purchase. Use this class
+if you need to pass more detailed information other than the amount and
+currency.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)customData"></a>
+                    <a name="//apple_ref/swift/Property/customData" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)customData">customData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add any custom key/value pairs if needed. Keys can be a
+maximum of 100 characters and values can be maximum of
+500 characters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">customData</span><span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="o">&gt;</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)customDescription"></a>
+                    <a name="//apple_ref/swift/Property/customDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)customDescription">customDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A custom description you may use to describe this purchase. Informational only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">customDescription</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)discount"></a>
+                    <a name="//apple_ref/swift/Property/discount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)discount">discount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The amount of a discount on this purchase. Informational only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">discount</span><span class="p">:</span> <span class="kt"><a href="../Classes/CurrencyAmount.html">CurrencyAmount</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)giftWrapCharges"></a>
+                    <a name="//apple_ref/swift/Property/giftWrapCharges" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)giftWrapCharges">giftWrapCharges</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The gift wrapping charges associated with this purchase.
+Informational only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">giftWrapCharges</span><span class="p">:</span> <span class="kt"><a href="../Classes/CurrencyAmount.html">CurrencyAmount</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)miscellaneousCharges"></a>
+                    <a name="//apple_ref/swift/Property/miscellaneousCharges" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)miscellaneousCharges">miscellaneousCharges</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Any amount associated with miscellaneous charges for this purchase.
+Informational only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">miscellaneousCharges</span><span class="p">:</span> <span class="kt"><a href="../Classes/CurrencyAmount.html">CurrencyAmount</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)orderId"></a>
+                    <a name="//apple_ref/swift/Property/orderId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)orderId">orderId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A custom value you may use to identify the purchase. Informational only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">orderId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)promoCode"></a>
+                    <a name="//apple_ref/swift/Property/promoCode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)promoCode">promoCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A promotional code entered by the user to make this purchase.
+Informational only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">promoCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)referenceCallId"></a>
+                    <a name="//apple_ref/swift/Property/referenceCallId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)referenceCallId">referenceCallId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This value should be set if a successful <code><a href="../Classes/CheckoutResult.html">CheckoutResult</a></code> was received
+AND you need to modify the purchase by invoking the Visa Checkout
+SDK again for the same purchase.</p>
+
+<p>For instance, if the user successfully completes the Visa Checkout process,
+<code><a href="../Classes/CheckoutResult.html#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)callId">CheckoutResult.callId</a></code> will be populated with a string that represents
+this purchase. If, then, you need to make adjustments to the exact same
+purchase, you must be sure to set this value to the one obtained from
+<code><a href="../Classes/CheckoutResult.html#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)callId">CheckoutResult.callId</a></code> before the user attempts to checkout again.</p>
+
+<hr>
+
+<p><em>An example of setting the <code>referenceCallId</code> with the value from a
+<code><a href="../Classes/CheckoutResult.html">CheckoutResult</a></code> instance</em></p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">checkoutResult</span><span class="p">:</span> <span class="kt">CheckoutResult</span> <span class="o">=</span> <span class="o">...</span>
+<span class="k">let</span> <span class="nv">purchaseInfo</span> <span class="o">=</span> <span class="kt">PurchaseInfo</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="n">purchaseInfo</span><span class="o">.</span><span class="n">referenceCallId</span> <span class="o">=</span> <span class="n">checkoutResult</span><span class="o">.</span><span class="n">callId</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">referenceCallId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)requestId"></a>
+                    <a name="//apple_ref/swift/Property/requestId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)requestId">requestId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A custom value you may use to identify this Visa Checkout attempt.
+Informational only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">requestId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)reviewAction"></a>
+                    <a name="//apple_ref/swift/Property/reviewAction" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)reviewAction">reviewAction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates to the user if there will be another &lsquo;finalize
+purchase&rsquo; screen once returning to your application.
+Default is <code>continue</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">reviewAction</span><span class="p">:</span> <span class="kt"><a href="../Enums/ReviewAction.html">ReviewAction</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">continue</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)reviewMessage"></a>
+                    <a name="//apple_ref/swift/Property/reviewMessage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)reviewMessage">reviewMessage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows setting a custom review and continue message
+shown as a label below the Continue/Pay button</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">reviewMessage</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)shippingAndHandlingCharges"></a>
+                    <a name="//apple_ref/swift/Property/shippingAndHandlingCharges" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)shippingAndHandlingCharges">shippingAndHandlingCharges</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The shipping and handling charges associated with this purchase.
+Informational only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">shippingAndHandlingCharges</span><span class="p">:</span> <span class="kt"><a href="../Classes/CurrencyAmount.html">CurrencyAmount</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)shippingRequired"></a>
+                    <a name="//apple_ref/swift/Property/shippingRequired" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)shippingRequired">shippingRequired</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Determines whether you require a shipping address from your
+customers. If <code>true</code>, the user will be required to provide
+a valid shipping address in addition to a valid billing
+address. This should be set to <code>true</code> if you intend to send
+physical items to the user. Default value is <code>false</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">shippingRequired</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)sourceId"></a>
+                    <a name="//apple_ref/swift/Property/sourceId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)sourceId">sourceId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A custom value you may use to identify this user. Informational only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">sourceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)subtotal"></a>
+                    <a name="//apple_ref/swift/Property/subtotal" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)subtotal">subtotal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The subtotal of the purchase. Informational only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">subtotal</span><span class="p">:</span> <span class="kt"><a href="../Classes/CurrencyAmount.html">CurrencyAmount</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)tax"></a>
+                    <a name="//apple_ref/swift/Property/tax" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)tax">tax</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The taxes assessed on this purchase. Informational only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">tax</span><span class="p">:</span> <span class="kt"><a href="../Classes/CurrencyAmount.html">CurrencyAmount</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)threeDSActive"></a>
+                    <a name="//apple_ref/swift/Property/threeDSActive" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)threeDSActive">threeDSActive</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set this to true if 3DS should be active.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">threeDSActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)threeDSSuppressChallenge"></a>
+                    <a name="//apple_ref/swift/Property/threeDSSuppressChallenge" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)threeDSSuppressChallenge">threeDSSuppressChallenge</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set this to true if 3DS should not challenge the user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">threeDSSuppressChallenge</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(im)initWithTotal:currency:"></a>
+                    <a name="//apple_ref/swift/Method/init(total:currency:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(im)initWithTotal:currency:">init(total:currency:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">total</span><span class="p">:</span> <span class="kt"><a href="../Classes/CurrencyAmount.html">CurrencyAmount</a></span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="kt"><a href="../Enums/Currency.html">Currency</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Visa, Inc.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

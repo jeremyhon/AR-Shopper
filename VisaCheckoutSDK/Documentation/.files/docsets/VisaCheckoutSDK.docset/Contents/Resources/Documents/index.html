@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VisaCheckoutSDK  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="VisaCheckoutSDK  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">VisaCheckoutSDK Docs</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">VisaCheckoutSDK Reference</a>
+        <img id="carat" src="img/carat.png" />
+        VisaCheckoutSDK  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="installation.html">Installation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="usage.html">Usage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Configure.html">Configure</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/VisaCheckoutSDK.html">VisaCheckoutSDK</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Profile.html">Profile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CardBrand.html">CardBrand</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CheckoutConfigStatus.html">CheckoutConfigStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Country.html">Country</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Environment.html">Environment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ReviewAction.html">ReviewAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/DataLevel.html">DataLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Checkout.html">Checkout</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/CheckoutButton.html">CheckoutButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CheckoutResult.html">CheckoutResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CurrencyAmount.html">CurrencyAmount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PurchaseInfo.html">PurchaseInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CheckoutButtonStyle.html">CheckoutButtonStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CheckoutResultStatus.html">CheckoutResultStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Currency.html">Currency</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='strong-span-style-color-122d98-visa-checkout-sdk-v5-5-0-span-strong' class='heading'><strong><span style="color:#122d98">Visa Checkout SDK v5.5.0</span></strong></h1>
+
+<p>The Visa Checkout SDK for iOS enables you to integrate a Visa Checkout payment flow into your iOS app. The consumer taps the checkout with Visa Checkout button in your app, which launches the Visa Checkout flow. The consumer then logs into Visa Checkout to confirm the payment information and shipping address and continue with the purchase, possibly changing shipping or payment information before continuing back to your app. At that point, your app confirms the successful purchase with Visa Checkout.</p>
+
+<p>To operate effectively, Visa Checkout SDK supports the following technologies:</p>
+
+<ul>
+<li>iPhone 5 or later devices</li>
+<li>Xcode 8.0 or later</li>
+<li>iOS 9.0 or later</li>
+</ul>
+
+<p>After following the integration steps described in this document, your customer can checkout and pay with Visa Checkout:</p>
+
+<p><img src="img/flow.jpg" alt="Visa Checkout mobile flow"></p>
+
+<p>When the customer taps the Visa Checkout button, Visa Checkout executes the following flow:</p>
+
+<ol>
+<li>Visa Checkout displays the Sign In screen, which allows your customer to
+
+<ul>
+<li>Sign in by entering an e-mail address or mobile phone number, and a password.</li>
+<li>Create a Visa Checkout account and specify payment information and shipping details to be securely stored in Visa Checkout.</li>
+</ul></li>
+<li>Visa Checkout presents the Review and Continue screen. <br/> <strong>Note:</strong> At this point, the customer can add or change the payment method, billing address, and shipping address.</li>
+<li>After the customer taps <strong>Continue</strong>, Visa Checkout returns the call ID, which identifies the payment request, an encrypted payload and other information, then returns control to your app.<br/><br/>
+After control is returned to your app, you pass the encrypted payment payload to your server for authorization and capture. Once done, your server must update the payment information in Visa Checkout.</li>
+</ol>
+
+<p><br/></p>
+<h2 id='span-style-color-122d98-getting-started-span' class='heading'><span style="color:#122d98">Getting Started</span></h2>
+
+<p>To integrate the iOS Visa Checkout SDK, review the <a href="installation.html">Installation</a> guide.</p>
+
+<p><br/></p>
+<h2 id='span-style-color-122d98-what-39-s-new-in-this-version-span' class='heading'><span style="color:#122d98">What&rsquo;s new in this version</span></h2>
+<h3 id='span-style-color-122d98-global-market-expansion-span' class='heading'><span style="color:#122d98">Global Market Expansion</span></h3>
+
+<p>The Mobile SDKs now support Visa Checkout merchant transactions in Central and Eastern Europe, Middle East and Africa (CEMEA). As part of this launch:</p>
+
+<ul>
+<li>Kuwait (English), Qatar (English), Saudi Arabia (English), Ukraine (English, Ukrainian (UI only))</li>
+<li>Address and phone formats have been updated to support the formats of these countries.</li>
+<li>Only Roman character input (extended ASCII) is supported; Arabic text display is not supported.</li>
+<li>Consumers, merchants, partners, and issuers from the Crimea region will not be able to enroll in Visa Checkout due to international sanctions.</li>
+</ul>
+
+<p>NOTE: Merchant support tools are in English only</p>
+
+<p><br/></p>
+<h2 id='span-style-color-122d98-upgrading-span' class='heading'><span style="color:#122d98">Upgrading</span></h2>
+<h3 id='span-style-color-122d98-installing-5-5-for-the-first-time-span' class='heading'><span style="color:#122d98">Installing 5.5 for the first time</span></h3>
+
+<ul>
+<li>Review the <a href="installation.html">Installation</a> guide for detailed installation instructions.</li>
+<li>Support for 5.5 is expected to discontinue 12/31/2018.</li>
+<li>Create separate mobile and web merchant profiles.</li>
+</ul>
+<h3 id='span-style-color-122d98-upgrading-to-5-5-from-gt-4-6-span' class='heading'><span style="color:#122d98">Upgrading to 5.5 from &gt;=4.6</span></h3>
+
+<ul>
+<li>Replace the VisaCheckoutSDK.framework file in your project.</li>
+<li>Support for 4.6 is expected to discontinue 4/30/2018.</li>
+<li>Create separate mobile and web merchant profiles.</li>
+</ul>
+<h3 id='span-style-color-122d98-upgrading-to-5-5-from-4-3-span' class='heading'><span style="color:#122d98">Upgrading to 5.5 from 4.3</span></h3>
+
+<ul>
+<li>It is easiest to upgrade by completely removing Visa Checkout from your project and starting from scratch. Review the <a href="installation.html">Installation</a> guide for detailed installation instructions.</li>
+<li>Support for 4.3 is expected to discontinue 9/30/2017.</li>
+<li>Create separate mobile and web merchant profiles.</li>
+</ul>
+<h3 id='span-style-color-122d98-upgrading-to-5-5-from-4-0-span' class='heading'><span style="color:#122d98">Upgrading to 5.5 from 4.0</span></h3>
+
+<ul>
+<li>It is easiest to upgrade by completely removing Visa Checkout from your project and starting from scratch. Review the <a href="installation.html">Installation</a> guide for detailed installation instructions.</li>
+<li>Support for 4.0 has been discontinued as of 5/31/2017.</li>
+<li>Create separate mobile and web merchant profiles.</li>
+</ul>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>Visa, Inc.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

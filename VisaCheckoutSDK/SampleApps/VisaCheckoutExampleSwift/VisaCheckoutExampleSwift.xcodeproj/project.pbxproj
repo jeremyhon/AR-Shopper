@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F200B9B1E3A66C4005D5CBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F200B9A1E3A66C4005D5CBA /* AppDelegate.swift */; };
+		3F200B9D1E3A66C4005D5CBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F200B9C1E3A66C4005D5CBA /* ViewController.swift */; };
+		3F200BA01E3A66C4005D5CBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F200B9E1E3A66C4005D5CBA /* Main.storyboard */; };
+		3F200BA51E3A66C4005D5CBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F200BA31E3A66C4005D5CBA /* LaunchScreen.storyboard */; };
+		3F200BAD1E3A67A9005D5CBA /* VisaCheckoutSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F200BAC1E3A67A9005D5CBA /* VisaCheckoutSDK.framework */; };
+		3F200BAE1E3A67A9005D5CBA /* VisaCheckoutSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F200BAC1E3A67A9005D5CBA /* VisaCheckoutSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3F200BB11E3A6881005D5CBA /* VisaCheckoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F200BB01E3A6881005D5CBA /* VisaCheckoutButton.swift */; };
+		7F73C0C21E6DD3EB00FFB119 /* TrustDefender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F73C0C11E6DD3EB00FFB119 /* TrustDefender.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3F200BAF1E3A67A9005D5CBA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3F200BAE1E3A67A9005D5CBA /* VisaCheckoutSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3F200B971E3A66C4005D5CBA /* VisaCheckoutExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisaCheckoutExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F200B9A1E3A66C4005D5CBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3F200B9C1E3A66C4005D5CBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3F200B9F1E3A66C4005D5CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3F200BA41E3A66C4005D5CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3F200BA61E3A66C4005D5CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F200BAC1E3A67A9005D5CBA /* VisaCheckoutSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VisaCheckoutSDK.framework; path = ../../VisaCheckoutSDK.framework; sourceTree = "<group>"; };
+		3F200BB01E3A6881005D5CBA /* VisaCheckoutButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisaCheckoutButton.swift; path = ../../VisaCheckoutButton.swift; sourceTree = "<group>"; };
+		7F73C0C11E6DD3EB00FFB119 /* TrustDefender.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TrustDefender.framework; path = ../../TrustDefender.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F200B941E3A66C4005D5CBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F73C0C21E6DD3EB00FFB119 /* TrustDefender.framework in Frameworks */,
+				3F200BAD1E3A67A9005D5CBA /* VisaCheckoutSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F200B8E1E3A66C4005D5CBA = {
+			isa = PBXGroup;
+			children = (
+				7F73C0C11E6DD3EB00FFB119 /* TrustDefender.framework */,
+				3F200BAC1E3A67A9005D5CBA /* VisaCheckoutSDK.framework */,
+				3F200BB01E3A6881005D5CBA /* VisaCheckoutButton.swift */,
+				3F200B991E3A66C4005D5CBA /* VisaCheckoutExampleSwift */,
+				3F200B981E3A66C4005D5CBA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F200B981E3A66C4005D5CBA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F200B971E3A66C4005D5CBA /* VisaCheckoutExampleSwift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F200B991E3A66C4005D5CBA /* VisaCheckoutExampleSwift */ = {
+			isa = PBXGroup;
+			children = (
+				3F200B9A1E3A66C4005D5CBA /* AppDelegate.swift */,
+				3F200B9C1E3A66C4005D5CBA /* ViewController.swift */,
+				3F200B9E1E3A66C4005D5CBA /* Main.storyboard */,
+				3F200BA31E3A66C4005D5CBA /* LaunchScreen.storyboard */,
+				3F200BA61E3A66C4005D5CBA /* Info.plist */,
+			);
+			path = VisaCheckoutExampleSwift;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F200B961E3A66C4005D5CBA /* VisaCheckoutExampleSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F200BA91E3A66C4005D5CBA /* Build configuration list for PBXNativeTarget "VisaCheckoutExampleSwift" */;
+			buildPhases = (
+				3F200B931E3A66C4005D5CBA /* Sources */,
+				3F200B941E3A66C4005D5CBA /* Frameworks */,
+				3F200B951E3A66C4005D5CBA /* Resources */,
+				3F200BAF1E3A67A9005D5CBA /* Embed Frameworks */,
+				3FA19FCC1E3CA4A100BB04A2 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VisaCheckoutExampleSwift;
+			productName = VisaCheckoutExampleSwift;
+			productReference = 3F200B971E3A66C4005D5CBA /* VisaCheckoutExampleSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F200B8F1E3A66C4005D5CBA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Example Inc";
+				TargetAttributes = {
+					3F200B961E3A66C4005D5CBA = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3F200B921E3A66C4005D5CBA /* Build configuration list for PBXProject "VisaCheckoutExampleSwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3F200B8E1E3A66C4005D5CBA;
+			productRefGroup = 3F200B981E3A66C4005D5CBA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F200B961E3A66C4005D5CBA /* VisaCheckoutExampleSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F200B951E3A66C4005D5CBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F200BA51E3A66C4005D5CBA /* LaunchScreen.storyboard in Resources */,
+				3F200BA01E3A66C4005D5CBA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3FA19FCC1E3CA4A100BB04A2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "# This script removes simulator architectures from VisaCheckoutSDK.framework so it can be uploaded to the App Store.\n# Make this a Build Phase run script after the 'Embed Frameworks' phase.\n# 'Run script only when installing' should be checked.\n# http://stackoverflow.com/questions/30547283/submit-to-app-store-issues/30866648\n$SRCROOT/../../removeSimulatorArchitecturesBuildPhase.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F200B931E3A66C4005D5CBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F200B9D1E3A66C4005D5CBA /* ViewController.swift in Sources */,
+				3F200BB11E3A6881005D5CBA /* VisaCheckoutButton.swift in Sources */,
+				3F200B9B1E3A66C4005D5CBA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3F200B9E1E3A66C4005D5CBA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F200B9F1E3A66C4005D5CBA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3F200BA31E3A66C4005D5CBA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F200BA41E3A66C4005D5CBA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F200BA71E3A66C4005D5CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3F200BA81E3A66C4005D5CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F200BAA1E3A66C4005D5CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = $PROJECT_DIR/../../;
+				INFOPLIST_FILE = VisaCheckoutExampleSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.VisaCheckoutExampleSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		3F200BAB1E3A66C4005D5CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = $PROJECT_DIR/../../;
+				INFOPLIST_FILE = VisaCheckoutExampleSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.VisaCheckoutExampleSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F200B921E3A66C4005D5CBA /* Build configuration list for PBXProject "VisaCheckoutExampleSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F200BA71E3A66C4005D5CBA /* Debug */,
+				3F200BA81E3A66C4005D5CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F200BA91E3A66C4005D5CBA /* Build configuration list for PBXNativeTarget "VisaCheckoutExampleSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F200BAA1E3A66C4005D5CBA /* Debug */,
+				3F200BAB1E3A66C4005D5CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F200B8F1E3A66C4005D5CBA /* Project object */;
+}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CheckoutResult Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/CheckoutResult" class="dashAnchor"></a>
+    <a title="CheckoutResult Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">VisaCheckoutSDK Docs</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">VisaCheckoutSDK Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CheckoutResult Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../installation.html">Installation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../usage.html">Usage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Configure.html">Configure</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/VisaCheckoutSDK.html">VisaCheckoutSDK</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Profile.html">Profile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CardBrand.html">CardBrand</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CheckoutConfigStatus.html">CheckoutConfigStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Country.html">Country</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Environment.html">Environment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReviewAction.html">ReviewAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DataLevel.html">DataLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Checkout.html">Checkout</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CheckoutButton.html">CheckoutButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckoutResult.html">CheckoutResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencyAmount.html">CurrencyAmount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PurchaseInfo.html">PurchaseInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CheckoutButtonStyle.html">CheckoutButtonStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CheckoutResultStatus.html">CheckoutResultStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Currency.html">Currency</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CheckoutResult</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CheckoutResult</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>CheckoutResult</code> class is the object that is returned when a Visa Checkout
+launch has occurred and finished. This class will contain information 
+related to the user&rsquo;s payment if successful. If the checkout attempt was
+unsuccessful, it will contain an error code in <code>statusCode</code>.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)callId"></a>
+                    <a name="//apple_ref/swift/Property/callId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)callId">callId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An internal identifier provided by the Visa Checkout SDK.
+Use this value as the value for the <code><a href="../Classes/PurchaseInfo.html#/c:@M@VisaCheckoutSDK@objc(cs)VisaPurchaseInfo(py)referenceCallId">PurchaseInfo.referenceCallId</a></code>
+property if you need to make modifications to a successful checkout
+transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">callId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)cardBrand"></a>
+                    <a name="//apple_ref/swift/Property/cardBrand" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)cardBrand">cardBrand</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The brand of the credit card the user has chosen to use for this
+purchase.
+This is only populated if <code><a href="../Classes/CheckoutResult.html#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)statusCode">statusCode</a></code> is of type <code>success</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cardBrand</span><span class="p">:</span> <span class="kt"><a href="../Enums/CardBrand.html">CardBrand</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)country"></a>
+                    <a name="//apple_ref/swift/Property/country" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)country">country</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The country associated with this user.
+This is only populated if <code><a href="../Classes/CheckoutResult.html#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)statusCode">statusCode</a></code> is of type <code>success</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">country</span><span class="p">:</span> <span class="kt"><a href="../Enums/Country.html">Country</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)encryptedKey"></a>
+                    <a name="//apple_ref/swift/Property/encryptedKey" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)encryptedKey">encryptedKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The encrypted key that is used to decrypt the <code><a href="../Classes/CheckoutResult.html#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)encryptedPaymentData">encryptedPaymentData</a></code>.
+This is only populated if <code><a href="../Classes/CheckoutResult.html#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)statusCode">statusCode</a></code> is of type <code>success</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">encryptedKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)encryptedPaymentData"></a>
+                    <a name="//apple_ref/swift/Property/encryptedPaymentData" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)encryptedPaymentData">encryptedPaymentData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The encrypted payment data containing the card information.
+This data needs to be decrypted using the <code><a href="../Classes/CheckoutResult.html#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)encryptedKey">encryptedKey</a></code>.
+This is only populated if <code><a href="../Classes/CheckoutResult.html#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)statusCode">statusCode</a></code> is of type <code>success</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">encryptedPaymentData</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)lastFourDigits"></a>
+                    <a name="//apple_ref/swift/Property/lastFourDigits" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)lastFourDigits">lastFourDigits</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The last four digits of the credit card the user has chosen to
+use for this purchase.
+This is only populated if <code><a href="../Classes/CheckoutResult.html#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)statusCode">statusCode</a></code> is of type <code>success</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">lastFourDigits</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)paymentMethodType"></a>
+                    <a name="//apple_ref/swift/Property/paymentMethodType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)paymentMethodType">paymentMethodType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The payment method type, set to either TOKEN or PAN.
+This is only populated if <code><a href="../Classes/CheckoutResult.html#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)statusCode">statusCode</a></code> is of type <code>success</code> and merchant has enabled tokenization.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">paymentMethodType</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)postalCode"></a>
+                    <a name="//apple_ref/swift/Property/postalCode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)postalCode">postalCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The postal code associated with this user.
+This is only populated if <code><a href="../Classes/CheckoutResult.html#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)statusCode">statusCode</a></code> is of type <code>success</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">postalCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)statusCode"></a>
+                    <a name="//apple_ref/swift/Property/statusCode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutResult(py)statusCode">statusCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The status of this checkout attempt.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">statusCode</span><span class="p">:</span> <span class="kt"><a href="../Enums/CheckoutResultStatus.html">CheckoutResultStatus</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Visa, Inc.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

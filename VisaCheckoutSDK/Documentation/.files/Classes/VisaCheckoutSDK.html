@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VisaCheckoutSDK Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/VisaCheckoutSDK" class="dashAnchor"></a>
+    <a title="VisaCheckoutSDK Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">VisaCheckoutSDK Docs</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">VisaCheckoutSDK Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        VisaCheckoutSDK Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../installation.html">Installation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../usage.html">Usage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Configure.html">Configure</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/VisaCheckoutSDK.html">VisaCheckoutSDK</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Profile.html">Profile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CardBrand.html">CardBrand</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CheckoutConfigStatus.html">CheckoutConfigStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Country.html">Country</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Environment.html">Environment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReviewAction.html">ReviewAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DataLevel.html">DataLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Checkout.html">Checkout</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CheckoutButton.html">CheckoutButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckoutResult.html">CheckoutResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencyAmount.html">CurrencyAmount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PurchaseInfo.html">PurchaseInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CheckoutButtonStyle.html">CheckoutButtonStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CheckoutResultStatus.html">CheckoutResultStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Currency.html">Currency</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>VisaCheckoutSDK</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">VisaCheckoutSDK</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>VisaCheckoutSDK</code> class is the way you will initialize the Visa Checkout SDK.
+It is required to call <code>VisaCheckoutSDK.configure()</code> so that the Visa Checkout SDK
+can get setup and enable the <code><a href="../Classes/CheckoutButton.html">CheckoutButton</a></code> for your customers.</p>
+
+<p>It is recommended to call <code>VisaCheckoutSDK.configure()</code> early in the app lifecycle, such as in
+the <code>didFinishLaunchingWithOptions</code> delegate method. <code>configure()</code> may be called
+multiple times if needed.</p>
+
+<hr>
+
+<p><em>Example configuring the Visa Checkout SDK</em></p>
+<pre class="highlight swift"><code><span class="kt">VisaCheckoutSDK</span><span class="o">.</span><span class="nf">configure</span><span class="p">(</span><span class="nv">environment</span><span class="p">:</span> <span class="o">.</span><span class="n">sandbox</span><span class="p">,</span>
+                          <span class="nv">apiKey</span><span class="p">:</span> <span class="s">"&lt;#Your API Key goes here#&gt;"</span><span class="p">)</span>
+</code></pre>
+
+<hr>
+
+<p>You can also use the VisaCheckoutSDK class to manually launch
+the SDK&rsquo;s user interface. This may desired if using a custom
+button for your users to tap. In this case, without the
+CheckoutButton, you are required to call
+<code>VisaCheckoutSDK.checkout()</code> directly.</p>
+
+<hr>
+
+<p><em>Example calling checkout() to launch Visa Checkout SDK manually</em></p>
+<pre class="highlight swift"><code><span class="kt">VisaCheckoutSDK</span><span class="o">.</span><span class="nf">checkout</span><span class="p">(</span><span class="nv">total</span><span class="p">:</span> <span class="mf">22.09</span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="o">.</span><span class="n">usd</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">statusCode</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cm)checkoutWithPurchaseInfo:completion:"></a>
+                    <a name="//apple_ref/swift/Method/checkout(purchaseInfo:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cm)checkoutWithPurchaseInfo:completion:">checkout(purchaseInfo:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A method to manually launch the Visa Checkout user interface with the detailed
+<code><a href="../Classes/PurchaseInfo.html">PurchaseInfo</a></code> used to complete a transaction. If the Visa Checkout SDK is configured
+properly, this will immediately present the Visa Checkout user interface to the user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">checkout</span><span class="p">(</span><span class="nv">purchaseInfo</span><span class="p">:</span> <span class="kt"><a href="../Classes/PurchaseInfo.html">PurchaseInfo</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">VisaCheckoutResultHandler</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cm)checkoutWithTotal:currency:completion:"></a>
+                    <a name="//apple_ref/swift/Method/checkout(total:currency:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cm)checkoutWithTotal:currency:completion:">checkout(total:currency:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A convenience method to manually launch the Visa Checkout user interface with the basic
+information needed to complete a transaction. If the Visa Checkout SDK is configured
+properly, this will immediately present the Visa Checkout user interface to the user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">checkout</span><span class="p">(</span><span class="nv">total</span><span class="p">:</span> <span class="kt"><a href="../Classes/CurrencyAmount.html">CurrencyAmount</a></span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="kt"><a href="../Enums/Currency.html">Currency</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/CheckoutResult.html">CheckoutResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cm)configureWithEnvironment:apiKey:profileName:result:"></a>
+                    <a name="//apple_ref/swift/Method/configure(environment:apiKey:profileName:result:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cm)configureWithEnvironment:apiKey:profileName:result:">configure(environment:apiKey:profileName:result:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Call this method to configure the Visa Checkout SDK using the basic information
+required to launch the Visa Checkout user interface.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="nv">environment</span><span class="p">:</span> <span class="kt"><a href="../Enums/Environment.html">Environment</a></span><span class="p">,</span>
+                                <span class="nv">apiKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                <span class="nv">profileName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                                <span class="nv">result</span><span class="p">:</span> <span class="p">((</span><span class="n">_</span> <span class="nv">status</span><span class="p">:</span> <span class="kt"><a href="../Enums/CheckoutConfigStatus.html">CheckoutConfigStatus</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cm)configureWithProfile:result:"></a>
+                    <a name="//apple_ref/swift/Method/configure(profile:result:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cm)configureWithProfile:result:">configure(profile:result:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Call this method to configure the Visa Checkout SDK using a <code><a href="../Classes/Profile.html">Profile</a></code> object with customizable
+options.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="nv">profile</span><span class="p">:</span> <span class="kt"><a href="../Classes/Profile.html">Profile</a></span><span class="p">,</span> <span class="nv">result</span><span class="p">:</span> <span class="p">((</span><span class="n">_</span> <span class="nv">status</span><span class="p">:</span> <span class="kt"><a href="../Enums/CheckoutConfigStatus.html">CheckoutConfigStatus</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cpy)isReady"></a>
+                    <a name="//apple_ref/swift/Variable/isReady" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cpy)isReady">isReady</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A value indicating whether the Visa Checkout SDK is configured and ready to launch,
+whether launched manually or through a <code><a href="../Classes/CheckoutButton.html">CheckoutButton</a></code> tap. The <code><a href="../Classes/CheckoutButton.html">CheckoutButton</a></code> will be
+enabled when this property is <code>true</code> (and disabled when this property is <code>false</code>).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">isReady</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cpy)marketingUrl"></a>
+                    <a name="//apple_ref/swift/Variable/marketingUrl" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cpy)marketingUrl">marketingUrl</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Use for campaign tracking promotions. 
+Should be set in the application(_:open:options:) UIApplicationDelegate method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">marketingUrl</span><span class="p">:</span> <span class="kt">URL</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cm)updatePaymentInfoWithParameters:"></a>
+                    <a name="//apple_ref/swift/Method/updatePaymentInfo(parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VisaCheckoutSDK@objc(cs)VisaCheckoutSDK(cm)updatePaymentInfoWithParameters:">updatePaymentInfo(parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Call this method to update payment information after original information passed to Visa has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">updatePaymentInfo</span><span class="p">(</span><span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Visa, Inc.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
