@@ -267,10 +267,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Places/Pods-Places-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${PODS_ROOT}/VisaCheckoutSDK/VisaCheckoutSDK_5.5.1_46a8f252/VisaCheckoutSDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VisaCheckoutSDK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -301,9 +303,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Places/Pods-Places-resources.sh",
+				"${PODS_ROOT}/VisaCheckoutSDK/VisaCheckoutSDK_5.5.1_46a8f252/VisaCheckoutButton+Designable.h",
+				"${PODS_ROOT}/VisaCheckoutSDK/VisaCheckoutSDK_5.5.1_46a8f252/VisaCheckoutButton+Designable.m",
+				"${PODS_ROOT}/VisaCheckoutSDK/VisaCheckoutSDK_5.5.1_46a8f252/VisaCheckoutButton.swift",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

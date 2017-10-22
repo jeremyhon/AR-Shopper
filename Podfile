@@ -7,4 +7,5 @@ target 'Places' do
 
   # Pods for Places
   pod 'Alamofire', '~> 4.5'
+  pod 'VisaCheckoutSDK', '5.5.1-9.0'
 end

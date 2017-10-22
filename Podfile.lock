@@ -1,12 +1,15 @@
 PODS:
   - Alamofire (4.5.1)
+  - VisaCheckoutSDK (5.5.1-9.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
+  - VisaCheckoutSDK (= 5.5.1-9.0)
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  VisaCheckoutSDK: 488d1e48ed77d37a920955cd5beb38f2bce67877
 
-PODFILE CHECKSUM: 9d5bb315b8fbb571c04caa17253cebe613dfdf94
+PODFILE CHECKSUM: 38dbe6678adf29acafc0acb8ead3b3e2bbfa991c
 
 COCOAPODS: 1.3.1
